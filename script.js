@@ -45,15 +45,15 @@ if (playButton && video && thumbnail && playIcon && videoContainer) {
 }
 
 // Menu mobile toggle
-const toggleBtn = document.getElementById('menu-toggle');
-const mobileMenu = document.getElementById('mobile-menu');
-if (toggleBtn && mobileMenu) {
-  toggleBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    mobileMenu.classList.toggle('animate-fade-in');
-  });
-}
 
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
 if (telefoneInput && typeof IMask === 'function') {
