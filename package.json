@@ -1,0 +1,12 @@
+{
+    "name": "landing-page",
+    "version": "1.0.0",
+    "description": "Phoenix Landing Page",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "googleapis": "^148.0.0"
+    }
+  }

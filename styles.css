@@ -1,0 +1,361 @@
+:root {
+  --phoenix-magenta: #A70240;
+  --phoenix-black: #000000;
+  --phoenix-white: #ffffff;
+}
+
+/* Fontes */
+@font-face {
+  font-family: 'Axiforma';
+  src: url('src/fonts/Axiforma-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Axiforma';
+  src: url('src/fonts/Axiforma-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Axiforma';
+  src: url('src/fonts/Axiforma-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Andis';
+  src: url('src/fonts/Andis-Regular.otf') format('opentype'),
+       url('src/fonts/Andis.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Felix Titling';
+  src: url('src/fonts/Felix-Titling.otf') format('opentype'),
+       url('src/fonts/Felix-Titling.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Utilitários de fonte */
+.font-felix {
+  font-family: 'Felix Titling', serif !important;
+}
+.font-axiforma {
+  font-family: 'Axiforma', serif !important;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6,
+.titulo, .subtitulo {
+  font-family: 'Axiforma', Arial, sans-serif !important;
+}
+h1, h2, h3, .titulo {
+  font-weight: bold;
+}
+h4, h5, h6, .subtitulo {
+  font-weight: normal;
+}
+
+/* Corpo */
+body {
+  font-family: 'Andis', Arial, sans-serif;
+  background-color: var(--phoenix-black);
+  color: var(--phoenix-white);
+}
+body, p, a, section, nav, footer {
+  font-family: 'Andis', Arial, sans-serif !important;
+}
+
+/* Backgrounds e cores */
+section, nav, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-gray-200 {
+  background-color: var(--phoenix-black) !important;
+  color: var(--phoenix-white) !important;
+}
+.text-gray-300, .text-gray-400, .text-gray-700, .text-gray-100 {
+  color: var(--phoenix-white) !important;
+}
+.text-phoenix-magenta {
+  color: var(--phoenix-magenta) !important;
+}
+.bg-phoenix-magenta {
+  background-color: var(--phoenix-magenta) !important;
+}
+.bg-opacity-10 {
+  background-color: rgba(167, 2, 64, 0.1) !important;
+}
+.bg-opacity-20 {
+  background-color: rgba(167, 2, 64, 0.2) !important;
+}
+.phoenix-gradient {
+  background: linear-gradient(135deg, var(--phoenix-magenta) 0%, var(--phoenix-black) 100%) !important;
+}
+
+/* Bordas */
+.border-gray-700, .border-gray-800, .border-phoenix-gray {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Utilitários de texto */
+.text-black, .text-gray-700 {
+  color: var(--phoenix-white) !important;
+}
+.hover\:text-phoenix-magenta:hover {
+  color: var(--phoenix-magenta) !important;
+}
+.hover\:bg-phoenix-magenta:hover {
+  background-color: #82012f !important; /* magenta mais escuro no hover */
+}
+.hover\:bg-opacity-90:hover {
+  opacity: 0.9 !important;
+}
+
+/* Sombra */
+.shadow-md, .shadow-lg {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+/* Ícones FAQ */
+.faq-btn i {
+  color: var(--phoenix-magenta);
+}
+
+/* Hero */
+.hero-background {
+  position: relative;
+  background: none !important;
+}
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/src/assets/background-2.webp");
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(80%) blur(2px) brightness(0.5);
+  z-index: 0;
+}
+.hero-background > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Imagens */
+#sobre img {
+  filter: grayscale(100%) brightness(0.8);
+}
+#thumbnail-image {
+  filter: grayscale(60%) brightness(0.8);
+}
+
+/* Animações */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95);}
+  to { opacity: 1; transform: scale(1);}
+}
+.animate-fade-in {
+  animation: fadeInScale 0.3s ease-out;
+}
+
+/* Vídeo */
+#phoenix-video-container, #phoenix-video {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  visibility: visible !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ícones circulares */
+.icon-circle {
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  max-width: 2rem !important;
+  max-height: 2rem !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px !important;
+  padding: 0 !important;
+}
+
+/* Formulário de inscrição */
+.form-container {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  padding: 20px 40px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+  min-height: 450px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.form-container h2 {
+  font-size: 24px;
+  font-family: 'Axiforma', 'Montserrat', sans-serif;
+  margin-bottom: 14px;
+  color: #bc2649;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.input-group {
+  margin-bottom: 16px;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-family: 'Axiforma', 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  font-family: 'Axiforma', sans-serif;
+}
+input::placeholder, textarea::placeholder {
+  color: #cbd5e1;
+}
+
+/* Checkbox */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.checkbox-container label {
+  font-size: 16px;
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 300;
+  font-family: 'Andis', sans-serif;
+  white-space: nowrap;
+}
+
+/* Botão submit */
+#formulario button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Etapas do formulário */
+.etapa { display: none; }
+.etapa.ativa { display: block; }
+
+/* Loading animation */
+.loading-animation {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #1a1a1a;
+  border-top: 5px solid #bc2649;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+#loading p {
+  text-align: center;
+  font-size: 16px;
+}
+
+/* Confirmação */
+.checkmark-animation {
+  font-size: 48px;
+  color: #bc2649;
+  animation: pop 0.6s ease-out forwards;
+  margin-bottom: 16px;
+}
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0;}
+  100% { transform: scale(1); opacity: 1;}
+}
+#confirmacao {
+  text-align: center;
+}
+#confirmacao p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Andis', sans-serif;
+}
+#confirmacao a {
+  text-decoration: none;
+}
+#confirmacao h2 {
+  color: #ffffff;
+}
+
+/* WhatsApp logo */
+.whatsapp-logo {
+  width: 18px;
+  vertical-align: middle;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hero-description {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .form-container {
+    border-radius: 16px;
+    margin-top: 20px;
+  }
+  .form-container h2 {
+    font-size: 22px;
+  }
+  .checkbox-container label {
+    font-size: 14px;
+  }
+  #phoenix-video-container, #phoenix-video {
+    object-fit: contain;
+  }
+  nav {
+    position: static !important;
+  }
+  nav.bg-transparent {
+    background-color: transparent !important;
+  }
+  #play-button {
+    padding: 0.5rem !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+  }
+  #play-button .phoenix-badge {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+  #play-button i {
+    font-size: 1rem !important;
+  }
+}

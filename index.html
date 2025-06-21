@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phoenix - Inglês de Verdade!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/imask"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'phoenix-magenta': '#A70240',
+            'phoenix-dark': '#000000',
+            'phoenix-black': '#000000',
+            'phoenix-light': '#111111',
+            'phoenix-gray': '#333333',
+            'phoenix-text': '#ffffff'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-black font-sans text-gray-100">
+    <!-- Navbar -->
+  <nav class="bg-phoenix-dark text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center font-menu relative">
+        <div class="flex items-center space-x-2">
+          <img src="src/assets/logo-phoenix.png" alt="Logo Phoenix" class="h-10 md:h-14">
+        </div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="font-axiforma hover:text-phoenix-magenta transition">Blog</a>
+          <a href="#sobre" class="font-axiforma hover:text-phoenix-magenta transition">Sobre</a>
+          <a href="#metodo" class="font-axiforma hover:text-phoenix-magenta transition">Método</a>
+          <a href="#diferenciais" class="font-axiforma hover:text-phoenix-magenta transition">Diferenciais</a>
+          <a href="#depoimentos" class="font-axiforma hover:text-phoenix-magenta transition">Depoimentos</a>
+          <a href="#contato" class="font-axiforma bg-phoenix-magenta px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition phoenix-gradient hover-scale">Matricule-se</a>
+        </div>
+        <!-- Botão hamburguer -->
+        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        <!-- Mobile menu (fora do botão!) -->
+        <div id="mobile-menu" class="absolute top-full -right-6 mt-2 hidden w-52 bg-phoenix-dark py-4 px-4 rounded-lg shadow-lg animate-fade-in z-50 flex flex-col space-y-4">
+          <a href="https://seudominio.com/blog" target="_blank" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Blog</a>
+          <a href="#sobre" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Sobre</a>
+          <a href="#metodo" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Método</a>
+          <a href="#diferenciais" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Diferenciais</a>
+          <a href="#depoimentos" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Depoimentos</a>
+          <a href="#contato" class="font-axiforma text-white text-center px-4 py-2 rounded-full font-medium phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">Matricule-se</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-background bg-phoenix-dark text-white py-8 md:py-32">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left flex flex-col md:items-start items-center px-4">
+              <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6 drop-shadow-lg">
+                Inglês sem <span class="bg-[#A70240] text-white" style="padding: 0 0.15em 2 0.2em; line-height: 1.3; display: inline-block;">Enrolação.</span>
+              </h1>
+                <p class="text-xl text-white mb-8">
+                    A Phoenix é a escola pensada para quem tem pouco tempo, mas grandes objetivos. Aulas práticas, professores experientes e um método direto ao ponto.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contato" class="text-xl inline-block px-6 py-3 text-white font-semibold rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105 text-base md:text-lg md:px-6 md:py-3">
+                      COMECE AGORA
+                   </a>
+                    <!--  <a href="#metodo" class="bg-phoenix-magenta bg-opacity-10 border-2 border-phoenix-magenta text-white font-bold py-3 px-8 rounded-full text-center transition duration-300 hover:bg-phoenix-magenta hover:text-white">
+                      Conheça o método
+                    </a> -->
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                
+<!-- Container com thumb + vídeo oculto -->
+<div class="relative w-full max-w-3xl">
+  <!-- Fundo decorativo -->
+  <div class="absolute -top-6 -left-6 w-full h-full bg-gray-400 rounded-lg opacity-30 z-0"></div>
+
+  <!-- Wrapper com proporção 16:9 -->
+<div class="relative w-full max-w-3xl mx-auto bg-black rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;">
+  <!-- Thumbnail -->
+  <img 
+    id="thumbnail-image"
+    src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    alt="Thumbnail"
+  class="w-full h-full object-cover bg-black">
+
+  <!-- Vídeo -->
+  <video 
+    id="phoenix-video"
+    class="absolute top-0 left-0 w-full h-full object-contain bg-black opacity-0 pointer-events-none transition-opacity duration-500"
+    playsinline
+    loop>
+    <source src="http://fhxyc1ue8pcvvruk.public.blob.vercel-storage.com/videos/Testimonials-n5Ujw2jtbW41Riomgo8fvEfQlT7npp.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Botão -->
+  <div class="absolute bottom-4 right-4 bg-white p-4 rounded-full shadow-lg group cursor-pointer z-20" id="play-button">
+    <div class="phoenix-badge flex items-center justify-center w-16 h-16 bg-phoenix-magenta rounded-full transition-transform duration-300 group-hover:scale-110 ">
+      <i class="fas fa-play text-white text-xl"></i>
+    </div>
+  </div>
+</div>
+
+    </section>
+
+<!-- Nova seção: Benefícios do inglês -->
+<section class="py-20 bg-phoenix-light text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-4">Por que aprender inglês <span class="text-phoenix-magenta">hoje</span>?</h2>
+      <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+      <p class="max-w-2xl mx-auto text-gray-300 text-lg">
+        Mais do que um diferencial, o inglês é uma ferramenta essencial para alcançar seus objetivos.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Bloco 1 -->
+      <div class="bg-phoenix-dark p-6 rounded-lg shadow-md hover-scale text-center">
+        <div class="mb-4 text-phoenix-magenta text-4xl">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Salários até 61% maiores</h3>
+        <p class="text-gray-300 text-lg">Profissionais que falam inglês ganham até 61% a mais do que quem não fala. <br /><span class="text-phoenix-magenta text-xs">Fonte: Catho</span></p>
+      </div>
+
+      <!-- Bloco 2 -->
+      <div class="bg-phoenix-dark p-6 rounded-lg shadow-md hover-scale text-center">
+        <div class="mb-4 text-phoenix-magenta text-4xl">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Menos de 5% fluentes</h3>
+        <p class="text-gray-300 text-lg">Apenas uma minoria dos brasileiros domina o inglês, o que aumenta sua vantagem no mercado. <br /><span class="text-phoenix-magenta text-xs">Fonte: IBGE</span></p>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="bg-phoenix-dark p-6 rounded-lg shadow-md hover-scale text-center">
+        <div class="mb-4 text-phoenix-magenta text-4xl">
+          <i class="fas fa-globe-americas"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Portas para o mundo</h3>
+        <p class="text-gray-300 text-lg">Viaje com confiança, conquiste promoções e aproveite oportunidades internacionais com o inglês.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Seção Sobre refinada -->
+<section id="sobre" class="py-20 bg-phoenix-light text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">O que é o curso <span class="text-phoenix-magenta">Phoenix</span>?</h2>
+      <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+      <p class="max-w-3xl mx-auto text-gray-300 text-lg">
+        A Phoenix ensina um método revolucionário de aprendizado de inglês que combina técnicas de imersão, neurociência e aprendizagem ativa para resultados reais e duradouros.
+      </p>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center md:space-x-12">
+      <!-- Imagem -->
+      <div class="md:w-1/2 mb-10 md:mb-0 relative">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+             alt="Professora ensinando" 
+             class="rounded-lg shadow-lg hover-scale">
+      </div>
+      <!-- Texto -->
+      <div class="md:w-1/2 space-y-6">
+        <h3 class="text-2xl font-bold mb-4">Por que a Phoenix é diferente?</h3>
+
+        <div class="flex items-start space-x-4">
+          <div class="icon-circle w-8 h-8 bg-phoenix-magenta text-white rounded-full flex items-center justify-center">
+            <i class="fas fa-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">Aprendizado Natural</h4>
+            <p class="text-gray-300 text-lg">Imitamos o processo de aquisição de linguagem como na infância: ouvir, entender, depois falar.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="icon-circle w-8 h-8 bg-phoenix-magenta text-white rounded-full flex items-center justify-center">
+            <i class="fas fa-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">Foco na Comunicação</h4>
+            <p class="text-gray-300 text-lg">A gramática não vem primeiro. Aqui, a fluência se desenvolve com conversas reais desde o começo.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-4">
+          <div class="icon-circle w-8 h-8 bg-phoenix-magenta text-white rounded-full flex items-center justify-center">
+            <i class="fas fa-check"></i>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">Aulas Dinâmicas</h4>
+            <p class="text-gray-300 text-lg">Nada de monotonia. Você participa ativamente, aprende com prática e diversão.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+<!-- Seção Metodologia Visual -->
+<section id="metodo" class="py-20 bg-phoenix-light text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Nosso método: <span class="text-phoenix-magenta">direto ao ponto.</span>
+      </h2>
+      <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-phoenix-dark rounded-lg p-6 shadow-lg hover-scale text-center border border-phoenix-gray">
+        <div class="text-5xl text-phoenix-magenta mb-4">
+          <i class="fas fa-dumbbell"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Inglês não é matéria</h3>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Aqui na Phoenix, tratamos o inglês como musculação: é na prática que se aprende. Aplicativos e gramática não te tornam fluente. A prática constante, sim.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-phoenix-dark rounded-lg p-6 shadow-lg hover-scale text-center border border-phoenix-gray">
+        <div class="text-5xl text-phoenix-magenta mb-4">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Curso imersivo e prático</h3>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Desde a primeira aula você estará falando inglês. Nosso método é baseado na conversação e situações do dia a dia desde o início.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-phoenix-dark rounded-lg p-6 shadow-lg hover-scale text-center border border-phoenix-gray">
+        <div class="text-5xl text-phoenix-magenta mb-4">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Conteúdo situacional</h3>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Nada de <span class="italic">"the book is on the table"</span>. Você aprende a se comunicar em entrevistas, reuniões, liderança, tradução, networking e mais.
+        </p>
+      </div>
+    </div>
+
+    <!-- Duração -->
+    <div class="mt-16 max-w-2xl mx-auto bg-phoenix-dark p-8 rounded-lg border-l-4 border-phoenix-magenta shadow-md text-center">
+      <h4 class="text-2xl font-bold mb-2 text-phoenix-magenta">⏱ Duração</h4>
+      <p class="text-gray-300 text-base">
+        Curso com duração padrão de 3 anos, podendo ser encurtado para até <strong>18 meses</strong>, conforme sua dedicação e ritmo.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Diferenciais Section -->
+    <section id="diferenciais" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Diferenciais <span class="text-phoenix-magenta">Exclusivos</span></h2>
+                <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-700 text-lg">
+                    O que faz da Phoenix o melhor método para aprender inglês de verdade
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-phoenix-dark text-white p-6 rounded-lg shadow-lg hover-scale">
+                    <div class="flex mb-4">
+                        <div class="bg-phoenix-magenta p-2 rounded-lg mr-4">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Plataforma Exclusiva</h3>
+                    </div>
+                    <p class="text-lg text-gray-300">
+                        Pratique onde e quando quiser com nossa plataforma de aulas e áudios.
+                    </p>
+                </div>
+                <div class="bg-phoenix-dark text-white p-6 rounded-lg shadow-lg hover-scale">
+                    <div class="flex mb-4">
+                        <div class="bg-phoenix-magenta p-2 rounded-lg mr-4">
+                            <i class="fas fa-graduation-cap text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Certificado Nacional</h3>
+                    </div>
+                    <p class="text-lg text-gray-300">
+                        Reconhecido por instituições no Brasil todo.
+                    </p>
+                </div>
+                <div class="bg-phoenix-dark text-white p-6 rounded-lg shadow-lg hover-scale">
+                    <div class="flex mb-4">
+                        <div class="bg-phoenix-magenta p-2 rounded-lg mr-4">
+                            <i class="fas fa-users text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Comunidade Ativa</h3>
+                    </div>
+                    <p class="text-lg text-gray-300">
+                        Conecte-se com outros alunos em nossos grupos exclusivos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-20 bg-phoenix-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">O que dizem nossos <span class="text-phoenix-magenta">alunos</span></h2>
+                <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto text-gray-700 text-lg">
+                    Depoimentos reais de quem já transformou sua vida com a Phoenix
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-black text-white p-6 rounded-lg shadow-md hover-scale border border-phoenix-gray">
+                    <div class="flex mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Aluna Maria" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Maria Silva</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Depois de tentar vários cursos, finalmente encontrei um método que funcionou para mim. Em 6 meses já estava falando fluentemente e consegui minha promoção!"
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                    <div class="flex mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Aluno Carlos" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Carlos Oliveira</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "O suporte 24/7 foi o que mais me ajudou. Podia estudar no meu horário e sempre tinha alguém para tirar minhas dúvidas. Recomendo demais!"
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover-scale">
+                    <div class="flex mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Aluna Ana" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Ana Rodrigues</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "A metodologia é incrível! Finalmente entendi que para falar inglês, preciso primeiro ouvir e entender. As aulas são dinâmicas e nunca são monótonas."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 phoenix-gradient text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Pronto para transformar seu inglês?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Comece hoje mesmo e em 6 meses esteja falando inglês com confiança!
+            </p>
+            <div class="inline-block bg-black text-white font-bold py-4 px-8 rounded-full transition hover:bg-phoenix-magenta hover:text-white">
+              <a href="#contato" class="flex items-center">
+                <span>Garanta sua vaga agora</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Entre em <span class="text-phoenix-magenta">contato</span></h2>
+                    <p class="text-gray-700 mb-8 text-base md:text-lg">
+                        Tem dúvidas ou quer saber mais sobre o curso? Preencha o formulário ou fale conosco por um dos nossos canais.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <a href="mailto:contato@phoenixingles.com.br" class="font-medium hover:text-phoenix-magenta transition text-base md:text-lg">
+                              phoenixschool10@gmail.com
+                            </a>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                              <a href="https://api.whatsapp.com/send/?phone=5599992066131&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-phoenix-magenta transition text-base md:text-lg">
+                                (99) 99206-6131
+                              </a>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="text-lg font-bold mb-4">Siga-nos nas redes sociais</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://www.instagram.com/phoenix_english_school" target="_blank" rel="noopener noreferrer" class="bg-gray-200 text-phoenix-dark hover:bg-phoenix-magenta hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@phoenix.pedreiras" target="_blank" rel="noopener noreferrer" class="bg-gray-200 text-phoenix-dark hover:bg-phoenix-magenta hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                              <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.facebook.com/phoenixenglishschool" target="_blank" rel="noopener noreferrer"  class="bg-gray-200 text-phoenix-dark hover:bg-phoenix-magenta hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@phoenixpedreiras?sub_confirmation=1" target="_blank" rel="noopener noreferrer"  class="bg-gray-200 text-phoenix-dark hover:bg-phoenix-magenta hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/phoenix-english-school" target="_blank" rel="noopener noreferrer"  class="bg-gray-200 text-phoenix-dark hover:bg-phoenix-magenta hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-container">
+                  <!-- Conteúdo fixo que troca dinamicamente -->
+                  <div id="conteudo-formulario">
+                    <!-- Formulário -->
+                    <div id="formulario-section" class="etapa ativa">
+                      <h2 class="font-axiforma font-bold text-2xl md:text-3xl mb-4"> Matricule-se agora!</h2>
+                      <form id="formulario">
+                        <div class="input-group">
+                          <label for="nome">Nome Completo</label>
+                          <input type="text" id="nome" name="nome" placeholder="Ex: John Doe" required />
+                        </div>
+                        <div class="input-group">
+                          <label for="email">E-mail</label>
+                          <input type="email" id="email" name="email" placeholder="Ex: johndoe@email.com" required />
+                        </div>
+                        <div class="input-group">
+                          <label for="telefone">Telefone</label>
+                          <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required />
+                        </div>
+                        <div class="checkbox-container">
+                          <input type="checkbox" id="aceita" name="aceita" required />
+                          <label for="aceita">Aceito receber conteúdos e promoções.</label>
+                        </div>
+                        <button class="bg-phoenix-magenta px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition phoenix-gradient hover-scale" type="submit">ENVIAR</button>
+                      </form>
+                    </div>
+
+                    <!-- Loading -->
+                    <div id="loading" class="etapa">
+                      <div class="loading-animation" role="status"></div>
+                      <p>Aguarde...</p>
+                    </div>
+
+                    <!-- Confirmação -->
+                    <div id="confirmacao" class="etapa">
+                      <div class="checkmark-animation">&#10003;</div>
+                      <h2>Cadastro concluído com sucesso!</h2>
+                      <p>
+                        Agora falta só mais um passo para ficar por dentro dos conteúdos exclusivos, dicas de inglês e novidades da Phoenix. 
+                        Siga nosso 
+                        <span class="whatsapp-text">
+                          Canal no WhatsApp
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="Logo do WhatsApp" class="whatsapp-logo" />
+                        </span>!
+                      </p>
+                      <a href="https://whatsapp.com/channel/0029VbApdZC4o7qO6W2red28" target="_blank" rel="noopener noreferrer">
+                        <button class="styled-button">Seguir Canal</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-phoenix-light">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Perguntas <span class="text-phoenix-magenta">Frequentes</span></h2>
+                <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-phoenix-light rounded-lg shadow-md mb-4 overflow-hidden text-white">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-medium">Quanto tempo leva para ficar fluente com o método Phoenix?</span>
+                        <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-700">
+                            Nosso método foi projetado para levar você à fluência em 6 meses de estudo consistente. No entanto, muitos alunos relatam conseguir se comunicar de forma básica já no primeiro mês. O tempo pode variar dependendo do seu nível inicial e da dedicação aos estudos.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-medium">Preciso saber algo de inglês antes de começar?</span>
+                        <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-700">
+                            Não! A Phoenix foi desenvolvida tanto para iniciantes absolutos quanto para quem já tem algum conhecimento. Nossas turmas são divididas por níveis para garantir que você tenha a melhor experiência de aprendizado.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-medium">Como funcionam as aulas ao vivo?</span>
+                        <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-700">
+                            As aulas ao vivo acontecem diariamente em diferentes horários para atender todos os alunos. Você pode participar quantas vezes quiser e todas ficam gravadas para quem não puder assistir no momento. São sessões interativas com professores nativos e brasileiros, focadas em conversação e situações reais.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
+                        <span class="text-lg font-medium">Qual a diferença da Phoenix para os cursinhos tradicionais?</span>
+                        <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden px-6 pb-6">
+                        <p class="text-gray-700">
+                            Nossa metodologia é baseada em como aprendemos nossa língua materna - primeiro ouvindo e entendendo, depois falando. Não focamos em gramática no início, mas sim em comunicação. Além disso, oferecemos suporte 24/7, aulas ao vivo diárias, aplicativo exclusivo e uma garantia incondicional de resultados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="bg-phoenix-dark text-white py-6">
+ <!--  <div class="max-w-6xl mx-auto flex flex-col items-center mb-8">
+    <img src="https://raw.githubusercontent.com/phoenix-droid-art/phoenix-form/refs/heads/main/assets/logo-horizontal-branca.png" alt="Logo Phoenix" class="h-32 md:h-40 mb-2">
+  </div>-->
+  <div style="background-color: #1E1E1E;" class="w-full py-8 px-8 md:px-16 rounded-none">
+    <div class="max-w-6xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+  <!-- Links Rápidos -->
+  <div>
+    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+    <ul class="space-y-2">
+      <li><a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="hover:text-phoenix-magenta transition">Blog</a></li>
+      <li><a href="#sobre" class="text-gray-400 hover:text-phoenix-magenta transition">Sobre</a></li>
+      <li><a href="#metodo" class="text-gray-400 hover:text-phoenix-magenta transition">Método</a></li>
+      <li><a href="#diferenciais" class="text-gray-400 hover:text-phoenix-magenta transition">Diferenciais</a></li>
+      <li><a href="#depoimentos" class="text-gray-400 hover:text-phoenix-magenta transition">Depoimentos</a></li>
+      <li><a href="#contato" class="text-gray-400 hover:text-phoenix-magenta transition">Matricule-se</a></li>
+    </ul>
+  </div>
+  <!-- Legal -->
+  <div>
+    <h4 class="text-lg font-bold mb-4">Legal</h4>
+    <ul class="space-y-2">
+      <li><a href="#" class="text-gray-400 hover:text-phoenix-magenta transition">Termos de Uso</a></li>
+      <li><a href="#" class="text-gray-400 hover:text-phoenix-magenta transition">Política de Privacidade</a></li>
+      <li><a href="#" class="text-gray-400 hover:text-phoenix-magenta transition">FAQ</a></li>
+    </ul>
+  </div>
+  <!-- Contato -->
+  <div class="col-span-2 md:col-span-1">
+    <h4 class="text-lg font-bold mb-4">Contato</h4>
+    <ul class="space-y-2">
+      <li class="text-gray-400 flex items-center gap-2">
+        <i class="fas fa-envelope text-white"></i>
+        phoenixschool10@gmail.com
+      </li>
+      <li class="text-gray-400 flex items-center gap-2">
+        <i class="fab fa-whatsapp text-white"></i>
+        (99) 99206-6131
+      </li>
+    </ul>
+  </div>
+</div>
+    </div>
+  </div>
+</footer>
+<div class="bg-phoenix-dark">
+  <div class="max-w-6xl mx-auto px-2 flex flex-col md:flex-row justify-center items-center pb-6">
+      <p class="text-gray-400 text-center w-full mb-2 md:mb-0">
+        © 2025 Phoenix - Inglês de Verdade! Todos os direitos reservados.
+      </p>
+      <div class="flex space-x-4 mt-2 md:mt-0">
+          <a href="https://www.instagram.com/phoenix_english_school" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-phoenix-magenta transition">
+              <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://www.tiktok.com/@phoenix.pedreiras" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-phoenix-magenta transition">
+            <i class="fab fa-tiktok text-xl"></i>
+          </a>
+          <a href="https://www.facebook.com/phoenixenglishschool" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-phoenix-magenta transition">
+              <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="https://www.youtube.com/@phoenixpedreiras?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-phoenix-magenta transition">
+              <i class="fab fa-youtube text-xl"></i>
+          </a>
+          <a href="https://api.whatsapp.com/send/?phone=5599992066131&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-phoenix-magenta transition">
+              <i class="fab fa-whatsapp text-xl"></i>
+          </a>
+      </div>
+  </div>
+</div>
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>
