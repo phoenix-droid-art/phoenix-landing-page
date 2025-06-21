@@ -258,6 +258,13 @@ input::placeholder, textarea::placeholder {
   white-space: nowrap;
 }
 
+#confirmacao h2 {
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  width: 100% !important;
+}
+
 /* Botão submit */
 #formulario button[type="submit"] {
   display: block;
