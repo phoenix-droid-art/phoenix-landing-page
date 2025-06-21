@@ -138,7 +138,7 @@ section, nav, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, 
   background-image: url("https://raw.githubusercontent.com/phoenix-droid-art/phoenix-landing-page/refs/heads/main/src/assets/Background-2.webp");
   background-size: cover;
   background-position: center;
-  filter: grayscale(80%) blur(2px) brightness(0.5);
+  filter: grayscale(80%) brightness(0.5);
   z-index: 0;
 }
 .hero-background > * {
