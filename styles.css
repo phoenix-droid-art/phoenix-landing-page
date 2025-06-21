@@ -135,7 +135,7 @@ section, nav, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, 
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/src/assets/background-2.webp");
+  background-image: url("https://raw.githubusercontent.com/phoenix-droid-art/phoenix-landing-page/refs/heads/main/src/assets/Background-2.webp");
   background-size: cover;
   background-position: center;
   filter: grayscale(80%) blur(2px) brightness(0.5);
