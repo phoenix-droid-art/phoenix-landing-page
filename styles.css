@@ -74,10 +74,15 @@ body, p, a, section, nav, footer {
 }
 
 /* Backgrounds e cores */
-section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-gray-200 {
+section, nav, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-gray-200 {
   background-color: var(--phoenix-black) !important;
   color: var(--phoenix-white) !important;
 }
+
+nav {
+    position: static !important;
+}
+
 .text-gray-300, .text-gray-400, .text-gray-700, .text-gray-100 {
   color: var(--phoenix-white) !important;
 }
