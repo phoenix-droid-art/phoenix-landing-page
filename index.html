@@ -27,13 +27,13 @@
   </script>
 </head>
 
-<body class="bg-transparent font-sans text-gray-100">
+<body class="bg-black font-sans text-gray-100">
     <!-- Navbar -->
-  <nav class="bg-transparent text-white shadow-md sticky top-0 z-50">
+  <nav class="bg-transparent text-white absolute top-0 left-0 w-full z-50">
     <div class="container mx-auto px-6 py-3">
       <div class="flex justify-between items-center font-menu relative">
         <div class="flex items-center space-x-2">
-          <img src="src/assets/logo-phoenix.png" alt="Logo Phoenix" class="h-10 md:h-14">
+          <img src="src/assets/logo-phoenix.png" alt="Logo Phoenix" class="h-12 md:h-16 pt-2">
         </div>
         <div class="hidden md:flex space-x-8 items-center">
           <a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="font-axiforma hover:text-phoenix-magenta transition">Blog</a>
@@ -41,27 +41,27 @@
           <a href="#metodo" class="font-axiforma hover:text-phoenix-magenta transition">Método</a>
           <a href="#diferenciais" class="font-axiforma hover:text-phoenix-magenta transition">Diferenciais</a>
           <a href="#depoimentos" class="font-axiforma hover:text-phoenix-magenta transition">Depoimentos</a>
-          <a href="#contato" class="font-axiforma bg-phoenix-magenta px-6 py-2 rounded-full font-medium hover:bg-opacity-90 transition phoenix-gradient hover-scale">Matricule-se</a>
+          <a href="#contato" class="font-axiforma font-bold text-white text-center px-4 py-2 rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">Matricule-se</a>
         </div>
         <!-- Botão hamburguer -->
         <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
           <i class="fas fa-bars text-xl"></i>
         </button>
         <!-- Mobile menu (fora do botão!) -->
-        <div id="mobile-menu" class="absolute top-full -right-6 mt-2 hidden w-52 py-4 px-4 rounded-lg shadow-lg animate-fade-in z-50 flex flex-col space-y-4">
+        <div id="mobile-menu" class="absolute top-full -right-6 mt-2 hidden w-52 py-4 px-4 bg-black rounded-lg shadow-lg animate-fade-in z-50 flex flex-col space-y-4">
           <a href="https://seudominio.com/blog" target="_blank" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Blog</a>
           <a href="#sobre" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Sobre</a>
           <a href="#metodo" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Método</a>
           <a href="#diferenciais" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Diferenciais</a>
           <a href="#depoimentos" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Depoimentos</a>
-          <a href="#contato" class="font-axiforma text-white text-center px-4 py-2 rounded-full font-medium phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">Matricule-se</a>
+          <a href="#contato" class="font-axiforma font-bold text-white text-center px-4 py-2 rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">Matricule-se</a>
         </div>
       </div>
     </div>
   </nav>
 
     <!-- Hero Section -->
-    <section class="hero-background bg-phoenix-dark text-white py-8 md:py-32">
+    <section class="hero-background bg-phoenix-dark text-white pt-24 md:pt-32 pb-8 md:pb-32">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left flex flex-col md:items-start items-center px-4">
               <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6 drop-shadow-lg">
@@ -71,7 +71,7 @@
                     A Phoenix é a escola pensada para quem tem pouco tempo, mas grandes objetivos. Aulas práticas, professores experientes e um método direto ao ponto.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contato" class="text-xl inline-block px-6 py-3 text-white font-bold rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105 text-base md:text-lg md:px-6 md:py-3">
+                    <a href="#contato" class="inline-block text-base md:text-sm px-4 md:px-6 py-2 md:py-3 text-white font-axiforma font-bold rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">
                       Comece Agora
                    </a>
                     <!--  <a href="#metodo" class="bg-phoenix-magenta bg-opacity-10 border-2 border-phoenix-magenta text-white font-bold py-3 px-8 rounded-full text-center transition duration-300 hover:bg-phoenix-magenta hover:text-white">
@@ -296,7 +296,7 @@
                 </div>
                 <div class="bg-phoenix-dark text-white p-6 rounded-lg shadow-lg hover-scale">
                     <div class="flex mb-4">
-                        <div class="bg-phoenix-magenta p-2 rounded-lg mr-4">
+                        <div class="bg-phoenix-magenta p-2 rounded-lg mr-4 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold">Certificado Nacional</h3>
@@ -419,7 +419,7 @@
                             <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <a href="mailto:contato@phoenixingles.com.br" class="font-medium hover:text-phoenix-magenta transition text-base md:text-lg">
+                            <a href="mailto:contato@phoenixingles.com.br" class="font-medium hover:text-phoenix-magenta transition text-lg md:text-xl">
                               phoenixschool10@gmail.com
                             </a>
                         </div>
@@ -427,7 +427,7 @@
                             <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
-                              <a href="https://api.whatsapp.com/send/?phone=5599992066131&text=Ol%C3%A1!%20Tenho%20interesse%20em%20aprender%20ingl%C3%AAs%20na%20Phoenix.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-phoenix-magenta transition text-base md:text-lg">
+                              <a href="https://api.whatsapp.com/send/?phone=5599992066131&text=Ol%C3%A1!%20Tenho%20interesse%20em%20aprender%20ingl%C3%AAs%20na%20Phoenix.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-phoenix-magenta transition text-lg md:text-xl">
                                 (99) 99206-6131
                               </a>
                         </div>
