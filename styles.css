@@ -74,7 +74,7 @@ body, p, a, section, nav, footer {
 }
 
 /* Backgrounds e cores */
-section, nav, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-gray-200 {
+section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-gray-200 {
   background-color: var(--phoenix-black) !important;
   color: var(--phoenix-white) !important;
 }
@@ -347,10 +347,8 @@ input::placeholder, textarea::placeholder {
   #phoenix-video-container, #phoenix-video {
     object-fit: contain;
   }
-  nav {
-    position: static !important;
-  }
-  nav.bg-transparent {
+
+  .bg-transparent {
     background-color: transparent !important;
   }
   #play-button {
