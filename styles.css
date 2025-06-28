@@ -27,6 +27,13 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'Acumin Variable Concept';
+  src: url('src/fonts/AcuminVariableConcept.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Andis';
   src: url('src/fonts/Andis-Regular.otf') format('opentype'),
        url('src/fonts/Andis.woff2') format('woff2');
@@ -65,12 +72,12 @@ h4, h5, h6, .subtitulo {
 
 /* Corpo */
 body {
-  font-family: 'Andis', Arial, sans-serif;
+  font-family: 'Acumin Variable Concept', Arial, sans-serif;
   background-color: var(--phoenix-black);
   color: var(--phoenix-white);
 }
 body, p, a, section, nav, footer {
-  font-family: 'Andis', Arial, sans-serif !important;
+  font-family: 'Acumin Variable Concept', Arial, sans-serif !important;
 }
 
 /* Backgrounds e cores */
