@@ -23,26 +23,100 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Vídeo: play/pause ao clicar no botão
 const playButton = document.getElementById('play-button');
-const thumbnail = document.getElementById('thumbnail-image');
+const playIcon = document.getElementById('play-icon');
 const video = document.getElementById('phoenix-video');
-const videoContainer = video?.parentElement;
-const playIcon = playButton?.querySelector('i');
+const thumb = document.getElementById('thumbnail-image');
+const overlay = document.getElementById('video-overlay');
 
-if (playButton && video && thumbnail && playIcon && videoContainer) {
-  playButton.addEventListener('click', () => {
-    videoContainer.style.display = 'block';
-    video.style.display = 'block';
-    if (video.paused) {
-      thumbnail.classList.add('hidden');
-      video.classList.remove('opacity-0', 'pointer-events-none');
-      video.play().catch(err => console.error('Erro ao reproduzir vídeo:', err));
-      playIcon.classList.replace('fa-play', 'fa-pause');
+let overlayTimeout;
+
+// Inicial: mostra overlay se vídeo pausado
+function showOverlay() {
+  overlay.classList.remove('opacity-0', 'pointer-events-none');
+  overlay.classList.add('opacity-100');
+}
+function hideOverlay() {
+  overlay.classList.remove('opacity-100');
+  overlay.classList.add('opacity-0', 'pointer-events-none');
+}
+
+// Atualiza ícone e thumb
+function showOverlay() {
+  overlay.classList.remove('opacity-0', 'pointer-events-none');
+  overlay.classList.add('opacity-100');
+}
+function hideOverlay() {
+  overlay.classList.remove('opacity-100');
+  overlay.classList.add('opacity-0', 'pointer-events-none');
+}
+
+// Atualiza ícone e thumb
+function updateButton() {
+  if (video.paused) {
+    playIcon.classList.remove('fa-pause');
+    playIcon.classList.add('fa-play');
+    thumb.style.display = video.currentTime === 0 ? '' : 'none';
+    showOverlay(); // Mostra o botão quando pausado
+  } else {
+    playIcon.classList.remove('fa-play');
+    playIcon.classList.add('fa-pause');
+    thumb.style.display = 'none';
+    hideOverlay(); // Esconde o botão quando tocando
+  }
+}
+
+// Clique em qualquer lugar do vídeo (exceto no botão): pausa/despausa
+video.parentElement.addEventListener('click', (e) => {
+  if (e.target === playButton || playButton.contains(e.target)) return;
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+// Clique no botão play/pause
+playButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+// Mouse move OU clique: mostra overlay se tocando, depois esconde rápido
+['mousemove', 'click'].forEach(evt => {
+  video.parentElement.addEventListener(evt, () => {
+    if (!video.paused) {
+      showOverlay();
+      clearTimeout(overlayTimeout);
+      overlayTimeout = setTimeout(() => {
+        // Só esconde se o vídeo ainda estiver tocando!
+        if (!video.paused) {
+          hideOverlay();
+        }
+      }, 900);
     } else {
-      video.pause();
-      playIcon.classList.replace('fa-pause', 'fa-play');
+      // Se o vídeo está pausado, sempre mostra o overlay
+      showOverlay();
+      clearTimeout(overlayTimeout);
     }
   });
-}
+});
+
+// Ao pausar, mostra overlay
+video.addEventListener('pause', updateButton);
+// Ao tocar, esconde overlay
+video.addEventListener('play', updateButton);
+// Ao terminar, mostra overlay e thumb
+video.addEventListener('ended', () => {
+  video.currentTime = 0;
+  updateButton();
+});
+
+// Inicial
+updateButton();
 
 // Menu mobile toggle
 
