@@ -82,34 +82,33 @@
             <div class="md:w-1/2 flex justify-center">
                 
 <!-- Container com thumb + vídeo oculto -->
-<div class="relative w-full max-w-3xl">
+<div class="relative w-full md:max-w-lg mx-auto">
   <!-- Fundo decorativo -->
-  <div class="absolute -top-6 -left-6 w-full h-full bg-gray-400 rounded-lg opacity-30 z-0"></div>
+  <div class="absolute -top-4 -left-4 w-full h-full bg-gray-400 rounded-lg opacity-30 z-0"></div>
 
   <!-- Wrapper com proporção 16:9 -->
-<div class="relative w-full max-w-3xl mx-auto bg-black rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;">
+  <div class="relative w-full md:max-w-lg mx-auto bg-black rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;">
   <!-- Thumbnail -->
-  <img 
+ <!-- <img 
     id="thumbnail-image"
     src="https://raw.githubusercontent.com/phoenix-droid-art/phoenix-landing-page/refs/heads/main/src/assets/thumbnail-video.avif"
     alt="Thumbnail"
-  class="w-full h-full object-cover bg-black">
+  class="w-full h-full object-cover bg-black"> -->
 
   <!-- Vídeo -->
   <video 
     id="phoenix-video"
-    class="absolute top-0 left-0 w-full h-full object-contain bg-black opacity-0 pointer-events-none transition-opacity duration-500"
+    class="absolute top-0 left-0 w-full h-full object-contain bg-black transition-opacity duration-500"
     playsinline
     loop>
     <source src="https://fhxyc1ue8pcvvruk.public.blob.vercel-storage.com/videos/Testimonials-n5Ujw2jtbW41Riomgo8fvEfQlT7npp.mp4" type="video/mp4" />
   </video>
 
   <!-- Botão -->
-  <div class="absolute bottom-4 right-4 bg-white p-4 rounded-full shadow-lg group cursor-pointer z-20" id="play-button">
-    <div class="phoenix-badge flex items-center justify-center w-16 h-16 bg-phoenix-magenta rounded-full transition-transform duration-300 group-hover:scale-110 ">
-      <i class="fas fa-play text-white text-xl"></i>
-    </div>
-  </div>
+<div id="video-overlay" class="absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-300 opacity-100">
+  <button id="play-button" class="phoenix-badge flex items-center justify-center w-16 h-16 bg-phoenix-magenta bg-opacity-80 rounded-full transition-transform duration-300 hover:scale-110 pointer-events-auto shadow-lg">
+    <i id="play-icon" class="fas fa-play text-white text-2xl"></i>
+  </button>
 </div>
 
     </section>
@@ -132,7 +131,7 @@
           <i class="fas fa-chart-line"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Salários em média 73%</h3>
-        <p class="text-gray-300 text-lg">Profissionais que falam inglês ganham em média 73% a mais do que quem não fala. <br /><span class="text-phoenix-magenta text-xs">Fonte: Catho</span></p>
+        <p class="text-gray-300 text-sm">Profissionais que falam inglês ganham em média 73% a mais do que quem não fala. <br /><span class="text-phoenix-magenta text-xs">Fonte: Catho</span></p>
       </div>
 
       <!-- Bloco 2 -->
@@ -141,7 +140,7 @@
           <i class="fas fa-user-graduate"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Menos de 5% são fluentes</h3>
-        <p class="text-gray-300 text-lg">Apenas uma minoria dos brasileiros domina o inglês, o que aumenta sua vantagem no mercado. <br /><span class="text-phoenix-magenta text-xs">Fonte: IBGE</span></p>
+        <p class="text-gray-300 text-sm">Apenas uma minoria dos brasileiros domina o inglês, o que aumenta sua vantagem no mercado. <br /><span class="text-phoenix-magenta text-xs">Fonte: IBGE</span></p>
       </div>
 
       <!-- Bloco 3 -->
@@ -150,7 +149,7 @@
           <i class="fas fa-globe-americas"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Portas abertas para o mundo</h3>
-        <p class="text-gray-300 text-lg">Viaje com confiança, conquiste promoções e aproveite oportunidades internacionais com o inglês.</p>
+        <p class="text-gray-300 text-sm">Viaje com confiança, conquiste promoções e aproveite oportunidades internacionais com o inglês.</p>
       </div>
     </div>
   </div>
@@ -185,7 +184,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Aprendizado Natural</h4>
-            <p class="text-gray-300 text-lg">Imitamos o processo de aquisição de linguagem como na infância: ouvir, entender, depois falar.</p>
+            <p class="text-gray-300 text-sm">Imitamos o processo de aquisição de linguagem como na infância: ouvir, entender, depois falar.</p>
           </div>
         </div>
 
@@ -195,7 +194,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Foco na Comunicação</h4>
-            <p class="text-gray-300 text-lg">A gramática não vem primeiro. Aqui, a fluência se desenvolve com conversas reais desde o começo.</p>
+            <p class="text-gray-300 text-sm">A gramática não vem primeiro. Aqui, a fluência se desenvolve com conversas reais desde o começo.</p>
           </div>
         </div>
 
@@ -205,7 +204,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Aulas Dinâmicas</h4>
-            <p class="text-gray-300 text-lg">Nada de monotonia. Você participa ativamente, aprende com prática e diversão.</p>
+            <p class="text-gray-300 text-sm">Nada de monotonia. Você participa ativamente, aprende com prática e diversão.</p>
           </div>
         </div>
       </div>
@@ -234,7 +233,7 @@
           <i class="fas fa-dumbbell"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Inglês não é matéria</h3>
-        <p class="text-gray-300 text-lg leading-relaxed">
+        <p class="text-gray-300 text-sm leading-relaxed">
           Aqui na Phoenix, tratamos o inglês como musculação: é na prática que se aprende. Aplicativos e gramática não te tornam fluente. A prática constante, sim.
         </p>
       </div>
@@ -245,7 +244,7 @@
           <i class="fas fa-comments"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Curso imersivo e prático</h3>
-        <p class="text-gray-300 text-lg leading-relaxed">
+        <p class="text-gray-300 text-sm leading-relaxed">
           Desde a primeira aula você estará falando inglês. Nosso método é baseado na conversação e situações do dia a dia desde o início.
         </p>
       </div>
@@ -256,7 +255,7 @@
           <i class="fas fa-briefcase"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Conteúdo situacional</h3>
-        <p class="text-gray-300 text-lg leading-relaxed">
+        <p class="text-gray-300 text-sm leading-relaxed">
           Nada de <span class="italic">"the book is on the table"</span>. Você aprende a se comunicar em entrevistas, reuniões, liderança, tradução, networking e mais.
         </p>
       </div>
@@ -290,7 +289,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Plataforma Exclusiva</h3>
                     </div>
-                    <p class="text-lg text-gray-300">
+                    <p class="text-sm text-gray-300">
                         Pratique onde e quando quiser com nossa plataforma de aulas e áudios.
                     </p>
                 </div>
@@ -301,7 +300,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Certificado Nacional</h3>
                     </div>
-                    <p class="text-lg text-gray-300">
+                    <p class="text-sm text-gray-300">
                         Reconhecido por instituições no Brasil todo.
                     </p>
                 </div>
@@ -312,7 +311,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Comunidade Ativa</h3>
                     </div>
-                    <p class="text-lg text-gray-300">
+                    <p class="text-sm text-gray-300">
                         Conecte-se com outros alunos em nossos grupos exclusivos.
                     </p>
                 </div>
@@ -419,7 +418,7 @@
                             <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <a href="mailto:contato@phoenixingles.com.br" class="font-medium hover:text-phoenix-magenta transition text-lg md:text-xl">
+                            <a href="mailto:contato@phoenixingles.com.br" class="font-medium hover:text-phoenix-magenta transition text-sm md:text-lg">
                               phoenixschool10@gmail.com
                             </a>
                         </div>
@@ -427,7 +426,7 @@
                             <div class="bg-phoenix-magenta text-white p-3 rounded-full mr-4">
                                 <i class="fab fa-whatsapp"></i>
                             </div>
-                              <a href="https://api.whatsapp.com/send/?phone=5599992066131&text=Ol%C3%A1!%20Tenho%20interesse%20em%20aprender%20ingl%C3%AAs%20na%20Phoenix.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-phoenix-magenta transition text-lg md:text-xl">
+                              <a href="https://api.whatsapp.com/send/?phone=5599992066131&text=Ol%C3%A1!%20Tenho%20interesse%20em%20aprender%20ingl%C3%AAs%20na%20Phoenix.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-phoenix-magenta transition text-sm md:text-lg">
                                 (99) 99206-6131
                               </a>
                         </div>
@@ -476,7 +475,7 @@
                           <input type="checkbox" id="aceita" name="aceita" required />
                           <label for="aceita">Aceito receber conteúdos e promoções.</label>
                         </div>
-                        <button class="bg-phoenix-magenta px-6 py-2 rounded-full font-bold hover:bg-opacity-90 transition phoenix-gradient hover-scale" type="submit">ENVIAR</button>
+                        <button class="bg-phoenix-magenta px-6 py-2 rounded-full font-axiforma font-bold hover:bg-opacity-90 transition phoenix-gradient hover-scale" type="submit">ENVIAR</button>
                       </form>
                     </div>
 
@@ -527,7 +526,7 @@
                     </button>
                     <div class="faq-answer hidden px-6 pb-6">
                         <p class="text-gray-700">
-                            Nosso método foi projetado para levar você à fluência em 6 meses de estudo consistente. No entanto, muitos alunos relatam conseguir se comunicar de forma básica já no primeiro mês. O tempo pode variar dependendo do seu nível inicial e da dedicação aos estudos.
+                            Nosso método foi projetado para transformar seu inglês em 6 meses de estudo consistente. No entanto, muitos alunos relatam conseguir se comunicar de forma básica já no primeiro mês. O tempo pode variar dependendo do seu nível inicial e da dedicação aos estudos.
                         </p>
                     </div>
                 </div>
@@ -544,23 +543,12 @@
                 </div>
                 <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
                     <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
-                        <span class="text-lg font-medium">Como funcionam as aulas ao vivo?</span>
-                        <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
-                    </button>
-                    <div class="faq-answer hidden px-6 pb-6">
-                        <p class="text-gray-700">
-                            As aulas ao vivo acontecem diariamente em diferentes horários para atender todos os alunos. Você pode participar quantas vezes quiser e todas ficam gravadas para quem não puder assistir no momento. São sessões interativas com professores nativos e brasileiros, focadas em conversação e situações reais.
-                        </p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-md mb-4 overflow-hidden">
-                    <button class="faq-btn w-full flex justify-between items-center p-6 focus:outline-none">
                         <span class="text-lg font-medium">Qual a diferença da Phoenix para os cursinhos tradicionais?</span>
                         <i class="fas fa-chevron-down text-phoenix-magenta transition-transform"></i>
                     </button>
                     <div class="faq-answer hidden px-6 pb-6">
                         <p class="text-gray-700">
-                            Nossa metodologia é baseada em como aprendemos nossa língua materna - primeiro ouvindo e entendendo, depois falando. Não focamos em gramática no início, mas sim em comunicação. Além disso, oferecemos suporte 24/7, aulas ao vivo diárias, aplicativo exclusivo e uma garantia incondicional de resultados.
+                            Nossa metodologia é baseada em como aprendemos nossa língua materna - primeiro ouvindo e entendendo, depois falando. Não focamos em gramática no início, mas sim em comunicação. Além disso, oferecemos suporte ao aluno e plataforma de aprendizagem exclusiva.
                         </p>
                     </div>
                 </div>
