@@ -376,9 +376,16 @@ input::placeholder, textarea::placeholder {
     font-size: 1rem !important;
   }
 }
-#video-overlay.opacity-0 {
-  visibility: hidden !important;
-}
-#video-overlay.opacity-100 {
-  visibility: visible !important;
-}
+  #video-overlay.opacity-0 {
+    visibility: hidden !important;
+  }
+  #video-overlay.opacity-100 {
+    visibility: visible !important;
+  }
+  #mobile-menu.hidden {
+    display: none !important;
+  }
+  #mobile-menu {
+    display: flex;
+    flex-direction: column;
+  }
