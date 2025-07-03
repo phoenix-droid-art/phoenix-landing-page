@@ -31,12 +31,12 @@
     <!-- Navbar -->
   <nav class="bg-transparent text-white absolute top-0 left-0 w-full z-50">
     <div class="container mx-auto px-6 py-3">
-      <div class="flex justify-between items-center font-menu relative">
+      <div class="flex items-center justify-center md:justify-between font-menu relative w-full">
         <div class="flex items-center space-x-2">
           <img src="src/assets/logo-phoenix.png" alt="Logo Phoenix" class="h-12 md:h-16 pt-2">
         </div>
         <div class="hidden md:flex space-x-8 items-center">
-          <a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="font-axiforma hover:text-phoenix-magenta transition">Blog</a>
+         <!-- <a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="font-axiforma hover:text-phoenix-magenta transition">Blog</a> -->
           <a href="#sobre" class="font-axiforma hover:text-phoenix-magenta transition">Sobre</a>
           <a href="#metodo" class="font-axiforma hover:text-phoenix-magenta transition">Método</a>
           <a href="#diferenciais" class="font-axiforma hover:text-phoenix-magenta transition">Diferenciais</a>
@@ -44,12 +44,12 @@
           <a href="#contato" class="font-axiforma font-bold text-white text-center px-4 py-2 rounded-full phoenix-gradient transition duration-300 hover:brightness-110 hover:scale-105">Matricule-se</a>
         </div>
         <!-- Botão hamburguer -->
-        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <button id="menu-toggle" class="md:hidden absolute right-4 top-3 text-white focus:outline-none z-50">
           <i class="fas fa-bars text-xl"></i>
         </button>
         <!-- Mobile menu (fora do botão!) -->
-        <div id="mobile-menu" class="absolute top-full -right-6 mt-2 hidden w-52 py-4 px-4 bg-black rounded-lg shadow-lg animate-fade-in z-50 flex flex-col space-y-4">
-          <a href="https://seudominio.com/blog" target="_blank" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Blog</a>
+        <div id="mobile-menu" class="hidden absolute top-full right-0 left-0 mt-2 hidden w-full px-6 py-4 bg-black rounded-lg shadow-lg animate-fade-in z-50 flex flex-col space-y-4 text-center">
+         <!--   <a href="https://seudominio.com/blog" target="_blank" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Blog</a>-->
           <a href="#sobre" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Sobre</a>
           <a href="#metodo" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Método</a>
           <a href="#diferenciais" class="font-axiforma text-white font-medium hover:text-phoenix-magenta transition">Diferenciais</a>
@@ -99,8 +99,7 @@
   <video 
     id="phoenix-video"
     class="absolute top-0 left-0 w-full h-full object-contain bg-black transition-opacity duration-500"
-    playsinline
-    loop>
+    playsinline>
     <source src="https://fhxyc1ue8pcvvruk.public.blob.vercel-storage.com/videos/Testimonials-n5Ujw2jtbW41Riomgo8fvEfQlT7npp.mp4" type="video/mp4" />
   </video>
 
@@ -119,7 +118,7 @@
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold mb-4">Por que aprender inglês <span class="text-phoenix-magenta">hoje</span>?</h2>
       <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
-      <p class="max-w-2xl mx-auto text-gray-300 text-lg">
+      <p class="max-w-2xl mx-auto text-gray-300 text-xl">
         Mais do que um diferencial, o inglês é uma ferramenta essencial para alcançar seus objetivos.
       </p>
     </div>
@@ -131,7 +130,7 @@
           <i class="fas fa-chart-line"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Salários em média 73%</h3>
-        <p class="text-gray-300 text-sm">Profissionais que falam inglês ganham em média 73% a mais do que quem não fala. <br /><span class="text-phoenix-magenta text-xs">Fonte: Catho</span></p>
+        <p class="text-gray-300 text-sm md:text-lg">Profissionais que falam inglês ganham, em média, entre 73% e 180% a mais em comparação aos que não falam. <br /><span class="text-phoenix-magenta text-xs">Fonte: Catho</span></p>
       </div>
 
       <!-- Bloco 2 -->
@@ -140,7 +139,7 @@
           <i class="fas fa-user-graduate"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Menos de 5% são fluentes</h3>
-        <p class="text-gray-300 text-sm">Apenas uma minoria dos brasileiros domina o inglês, o que aumenta sua vantagem no mercado. <br /><span class="text-phoenix-magenta text-xs">Fonte: IBGE</span></p>
+        <p class="text-gray-300 text-sm md:text-lg">Apenas uma minoria dos brasileiros domina o inglês, o que aumenta sua vantagem no mercado. <br /><span class="text-phoenix-magenta text-xs">Fonte: IBGE</span></p>
       </div>
 
       <!-- Bloco 3 -->
@@ -149,7 +148,7 @@
           <i class="fas fa-globe-americas"></i>
         </div>
         <h3 class="text-xl font-bold mb-2">Portas abertas para o mundo</h3>
-        <p class="text-gray-300 text-sm">Viaje com confiança, conquiste promoções e aproveite oportunidades internacionais com o inglês.</p>
+        <p class="text-gray-300 text-sm md:text-lg">Viaje com confiança, conquiste promoções e aproveite oportunidades internacionais com o inglês.</p>
       </div>
     </div>
   </div>
@@ -163,7 +162,7 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-4">O que é o curso <span class="text-phoenix-magenta">Phoenix</span>?</h2>
       <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
       <p class="max-w-3xl mx-auto text-gray-300 text-lg">
-        A Phoenix ensina um método revolucionário de aprendizado de inglês que combina técnicas de imersão, neurociência e aprendizagem ativa para resultados reais e duradouros.
+        A Phoenix tem um método validado no mercado há quase uma década de aprendizado de inglês que combina técnicas de imersão, neurociência e aprendizagem ativa para resultados reais e duradouros.
       </p>
     </div>
 
@@ -184,7 +183,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Aprendizado Natural</h4>
-            <p class="text-gray-300 text-sm">Imitamos o processo de aquisição de linguagem como na infância: ouvir, entender, depois falar.</p>
+            <p class="text-gray-300 text-sm md:text-lg">Mimetizamos o processo de aquisição de linguagem como na infância: ouvir, entender, depois falar.</p>
           </div>
         </div>
 
@@ -194,7 +193,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Foco na Comunicação</h4>
-            <p class="text-gray-300 text-sm">A gramática não vem primeiro. Aqui, a fluência se desenvolve com conversas reais desde o começo.</p>
+            <p class="text-gray-300 text-sm md:text-lg">A gramática não vem primeiro. Aqui, a fluência se desenvolve com conversas reais desde o começo.</p>
           </div>
         </div>
 
@@ -204,7 +203,7 @@
           </div>
           <div>
             <h4 class="font-bold mb-1">Aulas Dinâmicas</h4>
-            <p class="text-gray-300 text-sm">Nada de monotonia. Você participa ativamente, aprende com prática e diversão.</p>
+            <p class="text-gray-300 text-sm md:text-lg">Nada de monotonia. Você participa ativamente, aprende com prática e conteúdos da vida real.</p>
           </div>
         </div>
       </div>
@@ -233,8 +232,8 @@
           <i class="fas fa-dumbbell"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Inglês não é matéria</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Aqui na Phoenix, tratamos o inglês como musculação: é na prática que se aprende. Aplicativos e gramática não te tornam fluente. A prática constante, sim.
+        <p class="text-gray-300 text-sm md:text-lg leading-relaxed">
+          Aqui na Phoenix, não tratamos o inglês como os cursos tradicionais. Aplicativos e gramática chata não te tornam fluente. A prática constante, sim.
         </p>
       </div>
 
@@ -244,8 +243,8 @@
           <i class="fas fa-comments"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Curso imersivo e prático</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Desde a primeira aula você estará falando inglês. Nosso método é baseado na conversação e situações do dia a dia desde o início.
+        <p class="text-gray-300 text-sm md:text-lg leading-relaxed">
+          Desde a primeira aula você terá acesso ao inglês. Nosso método é baseado na conversação e situações do dia a dia desde o início.
         </p>
       </div>
 
@@ -255,8 +254,8 @@
           <i class="fas fa-briefcase"></i>
         </div>
         <h3 class="text-xl font-bold mb-3">Conteúdo situacional</h3>
-        <p class="text-gray-300 text-sm leading-relaxed">
-          Nada de <span class="italic">"the book is on the table"</span>. Você aprende a se comunicar em entrevistas, reuniões, liderança, tradução, networking e mais.
+        <p class="text-gray-300 text-sm md:text-lg leading-relaxed">
+          Nada de <span class="italic">"the book is on the table"</span>. Você aprende a se comunicar em entrevistas, reuniões, aulas de liderança, business, tradução, networking, oratória e mais.
         </p>
       </div>
     </div>
@@ -265,8 +264,7 @@
     <div class="mt-16 max-w-2xl mx-auto bg-phoenix-dark p-8 rounded-lg border-l-4 border-phoenix-magenta shadow-md text-center">
       <h4 class="text-2xl font-bold mb-2 text-phoenix-magenta">⏱ Duração</h4>
       <p class="text-gray-300 text-base">
-        Curso com duração padrão de 3 anos, podendo ser encurtado para até <strong>18 meses</strong>, conforme sua dedicação e ritmo.
-      </p>
+        Curso com duração máxima de 3 anos, e que pode ser encurtado para até <strong>18 meses</strong>, conforme o seu perfil.
     </div>
   </div>
 </section>
@@ -277,7 +275,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">Diferenciais <span class="text-phoenix-magenta">Exclusivos</span></h2>
                 <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
-                <p class="max-w-3xl mx-auto text-gray-700 text-lg">
+                <p class="max-w-3xl mx-auto text-gray-700 text-xl">
                     O que faz da Phoenix o melhor método para aprender inglês de verdade
                 </p>
             </div>
@@ -286,10 +284,11 @@
                     <div class="flex mb-4">
                         <div class="bg-phoenix-magenta p-2 rounded-lg mr-4">
                             <i class="fas fa-mobile-alt text-xl"></i>
-                        </div>
+                        </div> <!--  Aulas online ou presencial
+                        Escolha a unidade mais próxima ou, se preferir, participe das aulas ao vivo, de qualquer lugar do mundo.  -> Outro diferencial para colocar -->
                         <h3 class="text-xl font-bold">Plataforma Exclusiva</h3>
                     </div>
-                    <p class="text-sm text-gray-300">
+                    <p class="text-sm md:text-lg text-gray-300">
                         Pratique onde e quando quiser com nossa plataforma de aulas e áudios.
                     </p>
                 </div>
@@ -300,7 +299,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Certificado Nacional</h3>
                     </div>
-                    <p class="text-sm text-gray-300">
+                    <p class="text-sm md:text-lg text-gray-300">
                         Reconhecido por instituições no Brasil todo.
                     </p>
                 </div>
@@ -311,7 +310,7 @@
                         </div>
                         <h3 class="text-xl font-bold">Comunidade Ativa</h3>
                     </div>
-                    <p class="text-sm text-gray-300">
+                    <p class="text-sm md:text-lg text-gray-300">
                         Conecte-se com outros alunos em nossos grupos exclusivos.
                     </p>
                 </div>
@@ -326,7 +325,7 @@
                 <h2 class="text-3xl font-bold mb-4">O que dizem nossos <span class="text-phoenix-magenta">alunos</span></h2>
                 <div class="w-20 h-1 bg-phoenix-magenta mx-auto mb-6"></div>
                 <p class="max-w-3xl mx-auto text-gray-700 text-lg">
-                    Depoimentos reais de quem já transformou sua vida com a Phoenix
+                    Depoimentos reais de quem já aprendeu a falar inglês com a Phoenix
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -393,7 +392,7 @@
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-8">Pronto para transformar seu inglês?</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">
-                Comece hoje mesmo e em 6 meses esteja falando inglês com confiança!
+                Comece hoje mesmo e em 18 meses esteja falando inglês com confiança!
             </p>
             <div class="inline-block bg-black text-white font-bold py-4 px-8 rounded-full transition hover:bg-phoenix-magenta hover:text-white">
               <a href="#contato" class="flex items-center">
@@ -453,7 +452,7 @@
                     </div>
                 </div>
                 <div class="form-container">
-                  <!-- Conteúdo fixo que troca dinamicamente -->
+<!-- Conteúdo fixo que troca dinamicamente -->
                   <div id="conteudo-formulario">
                     <!-- Formulário -->
                     <div id="formulario-section" class="etapa ativa">
@@ -526,7 +525,7 @@
                     </button>
                     <div class="faq-answer hidden px-6 pb-6">
                         <p class="text-gray-700">
-                            Nosso método foi projetado para transformar seu inglês em 6 meses de estudo consistente. No entanto, muitos alunos relatam conseguir se comunicar de forma básica já no primeiro mês. O tempo pode variar dependendo do seu nível inicial e da dedicação aos estudos.
+                            Nosso método foi projetado para transformar seu inglês em 18 meses de estudo consistente. No entanto, muitos alunos relatam conseguir se comunicar de forma básica já no primeiro mês. O tempo pode variar dependendo do seu nível inicial e da dedicação aos estudos.
                         </p>
                     </div>
                 </div>
@@ -568,7 +567,7 @@
   <div>
     <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
     <ul class="space-y-2">
-      <li><a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="hover:text-phoenix-magenta transition">Blog</a></li>
+      <!--  <li><a href="https://seudominio.com/blog" target="_blank" rel="noopener noreferrer" class="hover:text-phoenix-magenta transition">Blog</a></li> -->
       <li><a href="#sobre" class="text-gray-400 hover:text-phoenix-magenta transition">Sobre</a></li>
       <li><a href="#metodo" class="text-gray-400 hover:text-phoenix-magenta transition">Método</a></li>
       <li><a href="#diferenciais" class="text-gray-400 hover:text-phoenix-magenta transition">Diferenciais</a></li>
