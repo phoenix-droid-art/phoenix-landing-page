@@ -29,7 +29,7 @@ export default async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
     const sheetId = process.env.SHEET_ID;
-    const range = 'Cadastro!A2:D';
+    const range = 'Leads!A2:D';
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
