@@ -94,7 +94,7 @@ section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-g
   color: var(--phoenix-white) !important;
 }
 .text-phoenix-magenta {
-  color: var(--phoenix-magenta) !important;
+  color: var(--phoenix-magenta);
 }
 .bg-phoenix-magenta {
   background-color: var(--phoenix-magenta) !important;
@@ -376,16 +376,24 @@ input::placeholder, textarea::placeholder {
     font-size: 1rem !important;
   }
 }
-  #video-overlay.opacity-0 {
-    visibility: hidden !important;
-  }
-  #video-overlay.opacity-100 {
-    visibility: visible !important;
-  }
-  #mobile-menu.hidden {
-    display: none !important;
-  }
-  #mobile-menu {
-    display: flex;
-    flex-direction: column;
-  }
+#video-overlay.opacity-0 {
+  visibility: hidden !important;
+}
+#video-overlay.opacity-100 {
+  visibility: visible !important;
+}
+#mobile-menu.hidden {
+  display: none !important;
+}
+#mobile-menu {
+  display: flex;
+  flex-direction: column;
+}
+a[href*="youtube"]:hover i.fab.fa-youtube,
+a[href*="youtube"]:focus i.fab.fa-youtube {
+  color: #A70240 !important;
+}
+a[href*="whatsapp"]:hover i.fab.fa-whatsapp,
+a[href*="whatsapp"]:focus i.fab.fa-whatsapp {
+  color: #000 !important;
+}
