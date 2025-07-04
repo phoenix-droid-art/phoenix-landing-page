@@ -55,12 +55,10 @@ function updateButton() {
   if (video.paused) {
     playIcon.classList.remove('fa-pause');
     playIcon.classList.add('fa-play');
-    thumb.style.display = video.currentTime === 0 ? '' : 'none';
     showOverlay(); // Mostra o botão quando pausado
   } else {
     playIcon.classList.remove('fa-play');
     playIcon.classList.add('fa-pause');
-    thumb.style.display = 'none';
     hideOverlay(); // Esconde o botão quando tocando
   }
 }
@@ -108,26 +106,19 @@ playButton.addEventListener('click', (e) => {
 // Ao pausar, mostra overlay
 video.addEventListener('pause', updateButton);
 // Ao tocar, esconde overlay
-video.addEventListener('play', updateButton);
+video.addEventListener('play', () => {
+  hideOverlay();
+  updateButton();
+});
 // Ao terminar, mostra overlay e thumb
-video.addEventListener('ended', () => {
-  video.currentTime = 0;
+video.addEventListener('pause', () => {
+  showOverlay();
   updateButton();
 });
 
 // Inicial
 updateButton();
 
-// Menu mobile toggle
-
-  const toggleBtn = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (toggleBtn && mobileMenu) {
-    toggleBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  }
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
 if (telefoneInput && typeof IMask === 'function') {
@@ -168,3 +159,14 @@ if (form) {
     });
   });
 }
+// Menu mobile toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+});
