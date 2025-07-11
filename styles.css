@@ -397,3 +397,13 @@ a[href*="whatsapp"]:hover i.fab.fa-whatsapp,
 a[href*="whatsapp"]:focus i.fab.fa-whatsapp {
   color: #000 !important;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+  -webkit-appearance: textfield; /* Chrome, Safari, Edge */
+  -moz-appearance: textfield; /* Firefox */
+}
