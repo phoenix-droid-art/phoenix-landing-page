@@ -393,10 +393,7 @@ a[href*="youtube"]:hover i.fab.fa-youtube,
 a[href*="youtube"]:focus i.fab.fa-youtube {
   color: #A70240 !important;
 }
-a[href*="whatsapp"]:hover i.fab.fa-whatsapp,
-a[href*="whatsapp"]:focus i.fab.fa-whatsapp {
-  color: #000 !important;
-}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -406,4 +403,33 @@ input[type="number"] {
   appearance: textfield;
   -webkit-appearance: textfield; /* Chrome, Safari, Edge */
   -moz-appearance: textfield; /* Firefox */
+}
+/* Modal Legal/FAQ */
+#modal-legal {
+  backdrop-filter: blur(6px);
+}
+#modal-legal .fa-times {
+  transition: color 0.2s;
+}
+#modal-legal .fa-times:hover {
+  color: #fff !important;
+}
+
+#modal-legal-content::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+  border-radius: 8px;
+}
+#modal-legal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #A70240 0%, #222 100%);
+  border-radius: 8px;
+}
+#modal-legal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #bc2649 0%, #333 100%);
+}
+
+/* Firefox */
+#modal-legal-content {
+  scrollbar-width: thin;
+  scrollbar-color: #333030 #222;
 }
