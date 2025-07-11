@@ -28,14 +28,16 @@ export default async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
     const sheetId = process.env.SHEET_ID;
-    const range = 'Leads!A2:E'; // agora até D
+
+    const dataCadastro = new Date().toLocaleDateString('pt-BR'); // exemplo: 11/07/2025
+    const values = [[dataCadastro, nome, email, idade, telefone]];
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
-      range: range,
+      range: 'Leads!A2:E', // agora são 5 colunas: Data, Nome, Email, Idade, Telefone
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [[nome, email, idade, telefone]], // inclua idade aqui
+        values,
       },
     });
 
@@ -46,7 +48,7 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Erro no backend:', error);
-    return res.status(500).json({ error: 'Erro interno do servidor' });
+    console.error('Erro no backend:', error?.message || error);
+    return res.status(500).json({ error: 'Erro interno do servidor', detalhe: error?.message });
   }
 }
