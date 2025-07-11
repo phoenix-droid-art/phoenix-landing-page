@@ -29,7 +29,16 @@ export default async function handler(req, res) {
     const sheets = google.sheets({ version: 'v4', auth });
     const sheetId = process.env.SHEET_ID;
 
-    const dataCadastro = new Date().toLocaleDateString('pt-BR'); // exemplo: 11/07/2025
+    const agora = new Date();
+    const dataCadastro = agora.toLocaleString('pt-BR', {
+      timeZone: 'America/Fortaleza', // ou a região do seu público
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+    });
     const values = [[nome, telefone, idade, email, dataCadastro]];
 
     const response = await sheets.spreadsheets.values.append({
