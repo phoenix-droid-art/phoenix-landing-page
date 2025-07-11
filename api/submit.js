@@ -14,10 +14,9 @@ export default async function handler(req, res) {
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  const { nome, email, telefone } = req.body;
-  const data = new Date().toLocaleDateString('pt-BR');
+  const { nome, email, idade, telefone } = req.body;
 
-  if (!nome || !email || !telefone) {
+  if (!nome || !email || !telefone || !idade) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
@@ -29,14 +28,14 @@ export default async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
     const sheetId = process.env.SHEET_ID;
-    const range = 'Leads!A2:D';
+    const range = 'Cadastro!A2:D'; // agora até D
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
       range: range,
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [[nome, telefone, email, data]],
+        values: [[nome, email, idade, telefone]], // inclua idade aqui
       },
     });
 
