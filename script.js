@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const legalTexts = {
   termos: `
     <h2 class="text-2xl font-bold text-phoenix-magenta mb-2">Termos de Uso</h2>
-    <p>Bem-vindo à Phoenix English School! Ao acessar e utilizar nosso site, você concorda com os seguintes termos:</p>
+    <p>Ao acessar e utilizar nosso site, você concorda com os seguintes termos:</p>
     <ul class="list-disc ml-6 space-y-2">
       <li><strong>Uso do Site:</strong> O conteúdo deste site é para fins informativos e educacionais. Não é permitido copiar, distribuir ou modificar qualquer parte sem autorização.</li>
       <li><strong>Cadastro:</strong> Ao se inscrever, você concorda em fornecer informações verdadeiras e manter seus dados atualizados.</li>
