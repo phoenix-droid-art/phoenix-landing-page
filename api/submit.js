@@ -30,7 +30,7 @@ export default async function handler(req, res) {
     const sheetId = process.env.SHEET_ID;
 
     const dataCadastro = new Date().toLocaleDateString('pt-BR'); // exemplo: 11/07/2025
-    const values = [[dataCadastro, nome, email, idade, telefone]];
+    const values = [[nome, telefone, idade, email, dataCadastro]];
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
