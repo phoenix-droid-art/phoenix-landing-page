@@ -188,7 +188,7 @@ const legalTexts = {
   `,
   privacidade: `
     <h2 class="text-2xl font-bold text-phoenix-magenta mb-2">Política de Privacidade</h2>
-    <p>Na Phoenix English School, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
+    <p>Na Phoenix, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
     <ul class="list-disc ml-6 space-y-2">
       <li><strong>Coleta de Dados:</strong> Coletamos apenas informações necessárias para inscrição, contato e melhoria dos serviços.</li>
       <li><strong>Uso dos Dados:</strong> Utilizamos seus dados para comunicação, envio de conteúdos e promoções, e para aprimorar sua experiência.</li>
