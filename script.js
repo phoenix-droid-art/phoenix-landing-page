@@ -141,6 +141,7 @@ if (form) {
     const dados = {
       nome: document.getElementById('nome').value,
       email: document.getElementById('email').value,
+      idade: document.getElementById('idade').value,
       telefone: document.getElementById('telefone').value,
     };
     fetch('/api/submit', {
