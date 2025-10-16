@@ -21,36 +21,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Carregar API do YouTube
-let tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-document.body.appendChild(tag);
-
-let player;
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('youtube-player', {
-    height: '100%',
-    width: '100%',
-    videoId: 'dQw4w9WgXcQ', // SEU VÍDEO
-    playerVars: {
-      controls: 0,
-      modestbranding: 1,
-      rel: 0,
-      showinfo: 0
-    },
-    events: {
-      'onReady': onPlayerReady,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
+// Vídeo: play/pause ao clicar no botão
 const playButton = document.getElementById('play-button');
 const playIcon = document.getElementById('play-icon');
+const video = document.getElementById('phoenix-video');
+const thumb = document.getElementById('thumbnail-image');
 const overlay = document.getElementById('video-overlay');
 
 let overlayTimeout;
 
+// Inicial: mostra overlay se vídeo pausado
 function showOverlay() {
   overlay.classList.remove('opacity-0', 'pointer-events-none');
   overlay.classList.add('opacity-100');
@@ -60,59 +40,84 @@ function hideOverlay() {
   overlay.classList.add('opacity-0', 'pointer-events-none');
 }
 
+// Atualiza ícone e thumb
+function showOverlay() {
+  overlay.classList.remove('opacity-0', 'pointer-events-none');
+  overlay.classList.add('opacity-100');
+}
+function hideOverlay() {
+  overlay.classList.remove('opacity-100');
+  overlay.classList.add('opacity-0', 'pointer-events-none');
+}
+
+// Atualiza ícone e thumb
 function updateButton() {
-  if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
+  if (video.paused) {
     playIcon.classList.remove('fa-pause');
     playIcon.classList.add('fa-play');
-    showOverlay();
+    showOverlay(); // Mostra o botão quando pausado
   } else {
     playIcon.classList.remove('fa-play');
     playIcon.classList.add('fa-pause');
-    hideOverlay();
+    hideOverlay(); // Esconde o botão quando tocando
   }
 }
 
-// Clique no botão play/pause
-playButton.addEventListener('click', e => {
-  e.stopPropagation();
-  if (!player) return;
-  const state = player.getPlayerState();
-  if (state === YT.PlayerState.PLAYING) player.pauseVideo();
-  else player.playVideo();
-});
-
-// Clique no container: play/pause
-document.getElementById('phoenix-video-container').addEventListener('click', e => {
+// Clique em qualquer lugar do vídeo (exceto no botão): pausa/despausa
+video.parentElement.addEventListener('click', (e) => {
   if (e.target === playButton || playButton.contains(e.target)) return;
-  if (!player) return;
-  const state = player.getPlayerState();
-  if (state === YT.PlayerState.PLAYING) player.pauseVideo();
-  else player.playVideo();
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
 });
 
-// Overlay ao mover mouse ou clicar
+// Clique no botão play/pause
+playButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+});
+
+// Mouse move OU clique: mostra overlay se tocando, depois esconde rápido
 ['mousemove', 'click'].forEach(evt => {
-  document.getElementById('phoenix-video-container').addEventListener(evt, () => {
-    if (!player) return;
-    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+  video.parentElement.addEventListener(evt, () => {
+    if (!video.paused) {
       showOverlay();
       clearTimeout(overlayTimeout);
       overlayTimeout = setTimeout(() => {
-        if (player.getPlayerState() === YT.PlayerState.PLAYING) hideOverlay();
+        // Só esconde se o vídeo ainda estiver tocando!
+        if (!video.paused) {
+          hideOverlay();
+        }
       }, 900);
     } else {
+      // Se o vídeo está pausado, sempre mostra o overlay
       showOverlay();
       clearTimeout(overlayTimeout);
     }
   });
 });
 
-// Eventos da API do YouTube
-function onPlayerReady() { updateButton(); }
-function onPlayerStateChange(event) {
+// Ao pausar, mostra overlay
+video.addEventListener('pause', updateButton);
+// Ao tocar, esconde overlay
+video.addEventListener('play', () => {
+  hideOverlay();
   updateButton();
-  if (event.data === YT.PlayerState.ENDED) showOverlay();
-}
+});
+// Ao terminar, mostra overlay e thumb
+video.addEventListener('pause', () => {
+  showOverlay();
+  updateButton();
+});
+
+// Inicial
+updateButton();
 
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
@@ -183,6 +188,7 @@ const legalTexts = {
   `,
   privacidade: `
     <h2 class="text-2xl font-bold text-phoenix-magenta mb-2">Política de Privacidade</h2>
+    <p>Na Phoenix English School, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
     <p>Na Phoenix, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
     <ul class="list-disc ml-6 space-y-2">
       <li><strong>Coleta de Dados:</strong> Coletamos apenas informações necessárias para inscrição, contato e melhoria dos serviços.</li>
