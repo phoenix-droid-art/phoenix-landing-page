@@ -108,7 +108,7 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-
+                
 <div class="relative w-full md:max-w-lg mx-auto">
   <!-- Fundo -->
   <div class="absolute -top-4 -left-4 w-full h-full bg-phoenix-light rounded-lg opacity-30 z-0"></div>
@@ -116,13 +116,20 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
   <!-- Wrapper 16:9 -->
   <div class="relative w-full md:max-w-lg mx-auto bg-black rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;">
 
-  <!-- Vídeo -->
-  <video 
+  <!-- Vídeo Vimeo -->
+  <iframe 
     id="phoenix-video"
-    class="absolute top-0 left-0 w-full h-full object-contain bg-black transition-opacity duration-500"
-    playsinline>
-    <source src="https://fhxyc1ue8pcvvruk.public.blob.vercel-storage.com/videos/Testimonials-n5Ujw2jtbW41Riomgo8fvEfQlT7npp.mp4" type="video/mp4" />
-  </video>
+    src="https://player.vimeo.com/video/1127861831?badge=0&autopause=0&player_id=0&app_id=58479&controls=0&quality=auto&background=0&muted=0&loop=0&transparent=0"
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    style="pointer-events: auto;"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+    loading="lazy"
+    title="Phoenix Video">
+  </iframe>
+
+  <!-- Overlay preto (estado padrão) -->
+  <div id="video-black-overlay" class="absolute inset-0 bg-black z-10 transition-opacity duration-300 opacity-100"></div>
 
   <!-- Botão -->
 <div id="video-overlay" class="absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-300 opacity-100">
@@ -344,7 +351,7 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
             </div>
         </div>
     </div>
-
+  
     <!-- Depoimentos Section -->
     <section id="depoimentos" class="py-12 bg-phoenix-dark">
       <div class="container mx-auto px-6">
@@ -655,6 +662,7 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
       <div id="modal-legal-content" class="text-white space-y-4 max-h-[70vh] overflow-y-auto"></div>
     </div>
   </div>
+  <script src="https://player.vimeo.com/api/player.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
