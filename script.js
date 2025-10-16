@@ -47,13 +47,13 @@ function hideOverlay() {
 
 // Funções para o overlay preto
 function showBlackOverlay() {
-  blackOverlay.classList.remove('opacity-0');
-  blackOverlay.classList.add('opacity-100');
+  blackOverlay.style.opacity = '1';
+  blackOverlay.style.visibility = 'visible';
 }
 
 function hideBlackOverlay() {
-  blackOverlay.classList.remove('opacity-100');
-  blackOverlay.classList.add('opacity-0');
+  blackOverlay.style.opacity = '0';
+  blackOverlay.style.visibility = 'hidden';
 }
 
 // Atualiza ícone
@@ -179,8 +179,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (toggleBtn && mobileMenu) {
-    toggleBtn.addEventListener('click', () => {
+    // Toggle menu ao clicar no botão
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fechar menu ao clicar fora
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('hidden') && 
+          !mobileMenu.contains(e.target) && 
+          !toggleBtn.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Fechar menu ao clicar em um link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
     });
   }
 });
