@@ -21,16 +21,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Vídeo: play/pause ao clicar no botão
+// Carregar API do YouTube
+let tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+document.body.appendChild(tag);
+
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtube-player', {
+    height: '100%',
+    width: '100%',
+    videoId: 'dQw4w9WgXcQ', // SEU VÍDEO
+    playerVars: {
+      controls: 0,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0
+    },
+    events: {
+      'onReady': onPlayerReady,
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
 const playButton = document.getElementById('play-button');
 const playIcon = document.getElementById('play-icon');
-const video = document.getElementById('phoenix-video');
-const thumb = document.getElementById('thumbnail-image');
 const overlay = document.getElementById('video-overlay');
 
 let overlayTimeout;
 
-// Inicial: mostra overlay se vídeo pausado
 function showOverlay() {
   overlay.classList.remove('opacity-0', 'pointer-events-none');
   overlay.classList.add('opacity-100');
@@ -40,84 +60,59 @@ function hideOverlay() {
   overlay.classList.add('opacity-0', 'pointer-events-none');
 }
 
-// Atualiza ícone e thumb
-function showOverlay() {
-  overlay.classList.remove('opacity-0', 'pointer-events-none');
-  overlay.classList.add('opacity-100');
-}
-function hideOverlay() {
-  overlay.classList.remove('opacity-100');
-  overlay.classList.add('opacity-0', 'pointer-events-none');
-}
-
-// Atualiza ícone e thumb
 function updateButton() {
-  if (video.paused) {
+  if (!player || player.getPlayerState() !== YT.PlayerState.PLAYING) {
     playIcon.classList.remove('fa-pause');
     playIcon.classList.add('fa-play');
-    showOverlay(); // Mostra o botão quando pausado
+    showOverlay();
   } else {
     playIcon.classList.remove('fa-play');
     playIcon.classList.add('fa-pause');
-    hideOverlay(); // Esconde o botão quando tocando
+    hideOverlay();
   }
 }
 
-// Clique em qualquer lugar do vídeo (exceto no botão): pausa/despausa
-video.parentElement.addEventListener('click', (e) => {
-  if (e.target === playButton || playButton.contains(e.target)) return;
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }
-});
-
 // Clique no botão play/pause
-playButton.addEventListener('click', (e) => {
+playButton.addEventListener('click', e => {
   e.stopPropagation();
-  if (video.paused) {
-    video.play();
-  } else {
-    video.pause();
-  }
+  if (!player) return;
+  const state = player.getPlayerState();
+  if (state === YT.PlayerState.PLAYING) player.pauseVideo();
+  else player.playVideo();
 });
 
-// Mouse move OU clique: mostra overlay se tocando, depois esconde rápido
+// Clique no container: play/pause
+document.getElementById('phoenix-video-container').addEventListener('click', e => {
+  if (e.target === playButton || playButton.contains(e.target)) return;
+  if (!player) return;
+  const state = player.getPlayerState();
+  if (state === YT.PlayerState.PLAYING) player.pauseVideo();
+  else player.playVideo();
+});
+
+// Overlay ao mover mouse ou clicar
 ['mousemove', 'click'].forEach(evt => {
-  video.parentElement.addEventListener(evt, () => {
-    if (!video.paused) {
+  document.getElementById('phoenix-video-container').addEventListener(evt, () => {
+    if (!player) return;
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
       showOverlay();
       clearTimeout(overlayTimeout);
       overlayTimeout = setTimeout(() => {
-        // Só esconde se o vídeo ainda estiver tocando!
-        if (!video.paused) {
-          hideOverlay();
-        }
+        if (player.getPlayerState() === YT.PlayerState.PLAYING) hideOverlay();
       }, 900);
     } else {
-      // Se o vídeo está pausado, sempre mostra o overlay
       showOverlay();
       clearTimeout(overlayTimeout);
     }
   });
 });
 
-// Ao pausar, mostra overlay
-video.addEventListener('pause', updateButton);
-// Ao tocar, esconde overlay
-video.addEventListener('play', () => {
-  hideOverlay();
+// Eventos da API do YouTube
+function onPlayerReady() { updateButton(); }
+function onPlayerStateChange(event) {
   updateButton();
-});
-// Ao terminar, mostra overlay e thumb
-video.addEventListener('pause', () => {
-  showOverlay();
-  updateButton();
-});
-
-// Inicial
-updateButton();
+  if (event.data === YT.PlayerState.ENDED) showOverlay();
+}
 
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
