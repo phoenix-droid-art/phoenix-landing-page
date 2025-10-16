@@ -186,6 +186,22 @@ section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-g
   z-index: 1;
 }
 
+/* Vimeo iframe - preencher todo o espaço */
+#phoenix-video {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: translate(-50%, -50%) !important;
+  object-fit: cover !important;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
 /* Ícones circulares */
 .icon-circle {
   width: 2rem !important;
