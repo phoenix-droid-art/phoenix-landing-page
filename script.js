@@ -21,103 +21,116 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Vídeo: play/pause ao clicar no botão
+// Vídeo Vimeo: play/pause ao clicar no botão
 const playButton = document.getElementById('play-button');
 const playIcon = document.getElementById('play-icon');
-const video = document.getElementById('phoenix-video');
-const thumb = document.getElementById('thumbnail-image');
+const videoIframe = document.getElementById('phoenix-video');
 const overlay = document.getElementById('video-overlay');
+const blackOverlay = document.getElementById('video-black-overlay');
+
+// Inicializa o Vimeo Player
+const player = new Vimeo.Player(videoIframe);
 
 let overlayTimeout;
+let isPlaying = false;
 
-// Inicial: mostra overlay se vídeo pausado
+// Funções de overlay
 function showOverlay() {
   overlay.classList.remove('opacity-0', 'pointer-events-none');
   overlay.classList.add('opacity-100');
 }
+
 function hideOverlay() {
   overlay.classList.remove('opacity-100');
   overlay.classList.add('opacity-0', 'pointer-events-none');
 }
 
-// Atualiza ícone e thumb
-function showOverlay() {
-  overlay.classList.remove('opacity-0', 'pointer-events-none');
-  overlay.classList.add('opacity-100');
-}
-function hideOverlay() {
-  overlay.classList.remove('opacity-100');
-  overlay.classList.add('opacity-0', 'pointer-events-none');
+// Funções para o overlay preto
+function showBlackOverlay() {
+  blackOverlay.classList.remove('opacity-0');
+  blackOverlay.classList.add('opacity-100');
 }
 
-// Atualiza ícone e thumb
-function updateButton() {
-  if (video.paused) {
-    playIcon.classList.remove('fa-pause');
-    playIcon.classList.add('fa-play');
-    showOverlay(); // Mostra o botão quando pausado
-  } else {
+function hideBlackOverlay() {
+  blackOverlay.classList.remove('opacity-100');
+  blackOverlay.classList.add('opacity-0');
+}
+
+// Atualiza ícone
+function updateButton(playing) {
+  if (playing) {
     playIcon.classList.remove('fa-play');
     playIcon.classList.add('fa-pause');
-    hideOverlay(); // Esconde o botão quando tocando
+    hideOverlay();
+    hideBlackOverlay(); // Esconde a tela preta quando está tocando
+  } else {
+    playIcon.classList.remove('fa-pause');
+    playIcon.classList.add('fa-play');
+    showOverlay();
+    showBlackOverlay(); // Mostra a tela preta quando pausado/parado
   }
 }
 
 // Clique em qualquer lugar do vídeo (exceto no botão): pausa/despausa
-video.parentElement.addEventListener('click', (e) => {
+videoIframe.parentElement.addEventListener('click', async (e) => {
   if (e.target === playButton || playButton.contains(e.target)) return;
-  if (video.paused) {
-    video.play();
+  const paused = await player.getPaused();
+  if (paused) {
+    player.play();
   } else {
-    video.pause();
+    player.pause();
   }
 });
 
 // Clique no botão play/pause
-playButton.addEventListener('click', (e) => {
+playButton.addEventListener('click', async (e) => {
   e.stopPropagation();
-  if (video.paused) {
-    video.play();
+  const paused = await player.getPaused();
+  if (paused) {
+    player.play();
   } else {
-    video.pause();
+    player.pause();
   }
 });
 
-// Mouse move OU clique: mostra overlay se tocando, depois esconde rápido
+// Mouse move: mostra overlay se tocando, depois esconde rápido
 ['mousemove', 'click'].forEach(evt => {
-  video.parentElement.addEventListener(evt, () => {
-    if (!video.paused) {
+  videoIframe.parentElement.addEventListener(evt, async () => {
+    const paused = await player.getPaused();
+    if (!paused) {
       showOverlay();
       clearTimeout(overlayTimeout);
-      overlayTimeout = setTimeout(() => {
-        // Só esconde se o vídeo ainda estiver tocando!
-        if (!video.paused) {
+      overlayTimeout = setTimeout(async () => {
+        const stillPlaying = !(await player.getPaused());
+        if (stillPlaying) {
           hideOverlay();
         }
       }, 900);
     } else {
-      // Se o vídeo está pausado, sempre mostra o overlay
       showOverlay();
       clearTimeout(overlayTimeout);
     }
   });
 });
 
-// Ao pausar, mostra overlay
-video.addEventListener('pause', updateButton);
-// Ao tocar, esconde overlay
-video.addEventListener('play', () => {
-  hideOverlay();
-  updateButton();
+// Event listeners do Vimeo
+player.on('play', () => {
+  isPlaying = true;
+  updateButton(true);
 });
-// Ao terminar, mostra overlay e thumb
-video.addEventListener('pause', () => {
-  showOverlay();
-  updateButton();
+
+player.on('pause', () => {
+  isPlaying = false;
+  updateButton(false);
+});
+
+player.on('ended', () => {
+  isPlaying = false;
+  updateButton(false);
 });
 
 // Inicial
-updateButton();
+showOverlay();
 
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
@@ -188,7 +201,6 @@ const legalTexts = {
   `,
   privacidade: `
     <h2 class="text-2xl font-bold text-phoenix-magenta mb-2">Política de Privacidade</h2>
-    <p>Na Phoenix English School, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
     <p>Na Phoenix, sua privacidade é prioridade. Veja como tratamos seus dados:</p>
     <ul class="list-disc ml-6 space-y-2">
       <li><strong>Coleta de Dados:</strong> Coletamos apenas informações necessárias para inscrição, contato e melhoria dos serviços.</li>
