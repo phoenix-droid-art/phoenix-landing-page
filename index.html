@@ -108,7 +108,7 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
-                
+
 <div class="relative w-full md:max-w-lg mx-auto">
   <!-- Fundo -->
   <div class="absolute -top-4 -left-4 w-full h-full bg-phoenix-light rounded-lg opacity-30 z-0"></div>
@@ -117,14 +117,12 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
   <div class="relative w-full md:max-w-lg mx-auto bg-black rounded-lg overflow-hidden" style="aspect-ratio: 2 / 1;">
 
   <!-- Vídeo -->
-<div id="phoenix-video-container" class="relative">
-  <div id="video-overlay" class="absolute inset-0 flex items-center justify-center opacity-100">
-    <button id="play-button" class="phoenix-badge p-4 rounded-full bg-phoenix-magenta text-white z-10">
-      <i id="play-icon" class="fas fa-play"></i>
-    </button>
-  </div>
-  <div id="youtube-player"></div>
-</div>
+  <video 
+    id="phoenix-video"
+    class="absolute top-0 left-0 w-full h-full object-contain bg-black transition-opacity duration-500"
+    playsinline>
+    <source src="https://fhxyc1ue8pcvvruk.public.blob.vercel-storage.com/videos/Testimonials-n5Ujw2jtbW41Riomgo8fvEfQlT7npp.mp4" type="video/mp4" />
+  </video>
 
   <!-- Botão -->
 <div id="video-overlay" class="absolute inset-0 flex items-center justify-center z-20 transition-opacity duration-300 opacity-100">
@@ -346,7 +344,7 @@ src="https://www.facebook.com/tr?id=1305019153298173&ev=PageView&noscript=1"
             </div>
         </div>
     </div>
-  
+
     <!-- Depoimentos Section -->
     <section id="depoimentos" class="py-12 bg-phoenix-dark">
       <div class="container mx-auto px-6">
