@@ -202,6 +202,19 @@ section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-g
   -webkit-transform-style: preserve-3d;
 }
 
+/* Forçar visibilidade dos overlays */
+#video-overlay, #video-black-overlay {
+  display: flex !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+#play-button {
+  display: flex !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
 /* Ícones circulares */
 .icon-circle {
   width: 2rem !important;
@@ -372,8 +385,60 @@ input::placeholder, textarea::placeholder {
   .checkbox-container label {
     font-size: 14px;
   }
-  #phoenix-video-container, #phoenix-video {
-    object-fit: contain;
+  
+  /* Vídeo mobile - garantir visibilidade */
+  #phoenix-video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    object-fit: cover !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Container do vídeo mobile */
+  #phoenix-video {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+  
+  #video-overlay {
+    display: flex !important;
+    z-index: 20 !important;
+  }
+  
+  #video-black-overlay {
+    display: block !important;
+    z-index: 10 !important;
+  }
+  
+  #play-button {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 30 !important;
+  }
+  
+  /* Garantir que o wrapper do vídeo apareça */
+  .md\:w-1\/2 {
+    display: flex !important;
+    width: 100% !important;
+  }
+  
+  /* Garantir altura mínima do container */
+  .hero-background .md\:w-1\/2 {
+    min-height: 200px !important;
+  }
+  
+  /* Forçar aspect ratio no mobile */
+  [style*="aspect-ratio"] {
+    min-height: 200px !important;
+    display: block !important;
   }
 
   .bg-transparent {
@@ -393,10 +458,12 @@ input::placeholder, textarea::placeholder {
   }
 }
 #video-overlay.opacity-0 {
-  visibility: hidden !important;
+  opacity: 0;
+  pointer-events: none;
 }
 #video-overlay.opacity-100 {
-  visibility: visible !important;
+  opacity: 1;
+  pointer-events: auto;
 }
 #mobile-menu.hidden {
   display: none !important;
