@@ -399,12 +399,17 @@ input::placeholder, textarea::placeholder {
     visibility: visible !important;
   }
   
+  /* Vídeo mobile - centralização e tamanho */
+  .hero-background .md\:w-1\/2 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
   /* Container do vídeo mobile */
   #phoenix-video {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 1 !important;
+    max-width: 90% !important;
+    max-height: 300px !important;
   }
   
   #video-overlay {
@@ -422,6 +427,9 @@ input::placeholder, textarea::placeholder {
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 30 !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 16px !important;
   }
   
   /* Garantir que o wrapper do vídeo apareça */
@@ -433,28 +441,12 @@ input::placeholder, textarea::placeholder {
   /* Garantir altura mínima do container */
   .hero-background .md\:w-1\/2 {
     min-height: 200px !important;
-  }
-  
-  /* Forçar aspect ratio no mobile */
-  [style*="aspect-ratio"] {
-    min-height: 200px !important;
-    display: block !important;
+    max-height: 350px !important;
+    margin: 0 auto !important;
   }
 
   .bg-transparent {
     background-color: transparent !important;
-  }
-  #play-button {
-    padding: 0.5rem !important;
-    right: 1rem !important;
-    bottom: 1rem !important;
-  }
-  #play-button .phoenix-badge {
-    width: 2.5rem !important;
-    height: 2.5rem !important;
-  }
-  #play-button i {
-    font-size: 1rem !important;
   }
 }
 #video-overlay.opacity-0 {
