@@ -345,14 +345,14 @@ input::placeholder, textarea::placeholder {
 }
 .checkbox-container label {
   position: relative;
-  padding-left: 36px; /* espaço para a caixinha custom */
+  padding-left: 34px; /* espaço para a caixinha custom */
   cursor: pointer;
 }
 .checkbox-container label::before {
   content: "";
   position: absolute;
   left: 0; top: 50%; transform: translateY(-50%);
-  width: 24px; height: 24px;
+  width: 22px; height: 22px;
   border: 2px solid rgba(255,255,255,0.8);
   border-radius: 6px;
   background: #111;
@@ -369,10 +369,10 @@ input::placeholder, textarea::placeholder {
 .checkbox-container label::after {
   content: "";
   position: absolute;
-  left: 6px; top: calc(50% - 1px);
-  width: 12px; height: 6px;
+  left: 5px; top: calc(50% - 1px);
+  width: 11px; height: 5.5px;
   border: solid #fff;
-  border-width: 0 0 3px 3px;
+  border-width: 0 0 2.6px 2.6px;
   transform: translateY(-50%) rotate(-45deg) scale(0);
   transform-origin: center;
   transition: transform .15s ease;
@@ -540,9 +540,9 @@ input::placeholder, textarea::placeholder {
     margin-bottom: 1.5rem !important; /* reduzir mais um pouco o gap do bloco */
   }
   /* Checkbox maior no mobile: aumenta a caixinha do pseudo-elemento */
-  .checkbox-container label { padding-left: 40px; }
-  .checkbox-container label::before { width: 28px; height: 28px; }
-  .checkbox-container label::after { left: 7px; width: 14px; height: 7px; border-width: 0 0 3.2px 3.2px; }
+  .checkbox-container label { padding-left: 38px; }
+  .checkbox-container label::before { width: 26px; height: 26px; }
+  .checkbox-container label::after { left: 6px; width: 13px; height: 6.5px; border-width: 0 0 3px 3px; }
 }
 #video-overlay.opacity-0 {
   opacity: 0;
