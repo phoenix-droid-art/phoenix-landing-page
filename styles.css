@@ -1,3 +1,14 @@
+.video-loading-spinner {
+  width: 54px;
+  height: 54px;
+  border: 4px solid rgba(255,255,255,0.15);
+  border-top-color: #A70240; /* phoenix magenta */
+  border-right-color: rgba(255,255,255,0.15);
+  border-bottom-color: rgba(255,255,255,0.15);
+  border-left-color: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
 :root {
   --phoenix-magenta: #A70240;
   --phoenix-black: #000000;
@@ -153,6 +164,16 @@ section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-g
   filter: grayscale(80%) brightness(0.5);
   z-index: 0;
 }
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* acima da imagem, abaixo do conteúdo */
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.85) 85%, #000 100%),
+    linear-gradient(to top, rgba(0,0,0,0) 65%, rgba(0,0,0,0.55) 100%);
+}
 .hero-background > * {
   position: relative;
   z-index: 1;
@@ -164,6 +185,19 @@ section, footer, .bg-white, .bg-gray-900, .bg-gray-700, .bg-phoenix-light, .bg-g
 }
 #thumbnail-image {
   filter: grayscale(60%) brightness(0.8);
+}
+
+/* Divisor de transição entre seções (hero -> próxima seção) */
+.section-blend {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 70%, #000 100%);
+  margin-top: -100px; /* cobre melhor a junção do hero */
+  z-index: 0;
+}
+@media (min-width: 768px) {
+  .section-blend { height: 200px; margin-top: -140px; }
 }
 
 /* Animações */

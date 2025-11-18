@@ -27,6 +27,7 @@ const playIcon = document.getElementById('play-icon');
 const videoIframe = document.getElementById('phoenix-video');
 const overlay = document.getElementById('video-overlay');
 const blackOverlay = document.getElementById('video-black-overlay');
+const spinner = document.getElementById('video-spinner');
 
 // Inicializa o Vimeo Player
 const player = new Vimeo.Player(videoIframe);
@@ -63,11 +64,13 @@ function updateButton(playing) {
     playIcon.classList.add('fa-pause');
     hideOverlay();
     hideBlackOverlay(); // Esconde a tela preta quando está tocando
+    if (spinner) { spinner.style.opacity = '0'; spinner.style.pointerEvents = 'none'; }
   } else {
     playIcon.classList.remove('fa-pause');
     playIcon.classList.add('fa-play');
     showOverlay();
     showBlackOverlay(); // Mostra a tela preta quando pausado/parado
+    if (spinner) { spinner.style.opacity = '0'; spinner.style.pointerEvents = 'none'; }
   }
 }
 
@@ -85,6 +88,7 @@ videoIframe.parentElement.addEventListener('click', async (e) => {
 // Clique no botão play/pause
 playButton.addEventListener('click', async (e) => {
   e.stopPropagation();
+  if (spinner) { spinner.style.opacity = '1'; spinner.style.pointerEvents = 'none'; }
   const paused = await player.getPaused();
   if (paused) {
     player.play();
@@ -117,16 +121,19 @@ playButton.addEventListener('click', async (e) => {
 player.on('play', () => {
   isPlaying = true;
   updateButton(true);
+  if (spinner) { spinner.style.opacity = '0'; spinner.style.pointerEvents = 'none'; }
 });
 
 player.on('pause', () => {
   isPlaying = false;
   updateButton(false);
+  if (spinner) { spinner.style.opacity = '0'; spinner.style.pointerEvents = 'none'; }
 });
 
 player.on('ended', () => {
   isPlaying = false;
   updateButton(false);
+  if (spinner) { spinner.style.opacity = '0'; spinner.style.pointerEvents = 'none'; }
 });
 
 // Inicial
@@ -152,10 +159,9 @@ if (form) {
     e.preventDefault();
     mostrarEtapa('loading');
     const dados = {
-      nome: document.getElementById('nome').value,
-      email: document.getElementById('email').value,
-      idade: document.getElementById('idade').value,
-      telefone: document.getElementById('telefone').value,
+      nome: document.getElementById('nome') ? document.getElementById('nome').value : '',
+      idade: document.getElementById('idade') ? document.getElementById('idade').value : '',
+      telefone: document.getElementById('telefone') ? document.getElementById('telefone').value : ''
     };
     fetch('/api/submit', {
       method: 'POST',
