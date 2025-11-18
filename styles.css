@@ -482,13 +482,14 @@ input::placeholder, textarea::placeholder {
   #play-button i {
     font-size: 1rem !important;
   }
-  /* Ajustes mobile do hero: diminuir parágrafo e espaço antes do formulário */
+  /* Ajustes mobile do hero: texto um pouco maior e leve redução de espaçamento */
   .hero-background p.text-2xl {
-    font-size: 16px !important;
-    line-height: 1.5 !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.75rem !important; /* reduzir levemente (antes ~2rem) */
   }
   .hero-background .mb-10 {
-    margin-bottom: 1rem !important; /* reduzir espaço entre texto e formulário */
+    margin-bottom: 2.25rem !important; /* reduzir levemente (antes 2.5rem) */
   }
 }
 #video-overlay.opacity-0 {
