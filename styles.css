@@ -334,32 +334,51 @@ input::placeholder, textarea::placeholder {
 }
 
 /* Checkbox visível e consistente (inclusive iOS/Android) */
-.checkbox-container {
-  gap: 10px;
-}
+.checkbox-container { gap: 10px; }
+/* Esconde o checkbox nativo e usa um pseudo-elemento consistente */
 .checkbox-container input[type="checkbox"] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 24px !important;
-  height: 24px !important;
-  border: 2px solid rgba(255,255,255,0.8) !important;
-  border-radius: 6px !important;
-  background-color: #111 !important;
-  display: inline-block;
-  vertical-align: middle;
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  pointer-events: none !important;
+}
+.checkbox-container label {
+  position: relative;
+  padding-left: 36px; /* espaço para a caixinha custom */
   cursor: pointer;
 }
-.checkbox-container input[type="checkbox"]:checked {
-  background-color: var(--phoenix-magenta) !important;
-  border-color: var(--phoenix-magenta) !important;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70% 70%;
+.checkbox-container label::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%; transform: translateY(-50%);
+  width: 24px; height: 24px;
+  border: 2px solid rgba(255,255,255,0.8);
+  border-radius: 6px;
+  background: #111;
+  box-shadow: 0 0 0 0 rgba(167,2,64,0);
+  transition: box-shadow .15s ease, border-color .15s ease, background-color .15s ease;
 }
-.checkbox-container input[type="checkbox"]:focus {
-  outline: 2px solid rgba(167,2,64,0.6) !important;
-  outline-offset: 2px !important;
+.checkbox-container input[type="checkbox"]:focus + label::before {
+  box-shadow: 0 0 0 3px rgba(167,2,64,0.35);
+}
+.checkbox-container input[type="checkbox"]:checked + label::before {
+  background-color: var(--phoenix-magenta);
+  border-color: var(--phoenix-magenta);
+}
+.checkbox-container label::after {
+  content: "";
+  position: absolute;
+  left: 6px; top: calc(50% - 1px);
+  width: 12px; height: 6px;
+  border: solid #fff;
+  border-width: 0 0 3px 3px;
+  transform: translateY(-50%) rotate(-45deg) scale(0);
+  transform-origin: center;
+  transition: transform .15s ease;
+}
+.checkbox-container input[type="checkbox"]:checked + label::after {
+  transform: translateY(-50%) rotate(-45deg) scale(1);
 }
 
 #confirmacao h2 {
@@ -520,12 +539,10 @@ input::placeholder, textarea::placeholder {
   .hero-background .mb-10 {
     margin-bottom: 1.5rem !important; /* reduzir mais um pouco o gap do bloco */
   }
-  /* Checkbox maior no mobile para toque mais fácil */
-  .checkbox-container input[type="checkbox"] {
-    width: 28px !important;
-    height: 28px !important;
-    border-width: 2px !important;
-  }
+  /* Checkbox maior no mobile: aumenta a caixinha do pseudo-elemento */
+  .checkbox-container label { padding-left: 40px; }
+  .checkbox-container label::before { width: 28px; height: 28px; }
+  .checkbox-container label::after { left: 7px; width: 14px; height: 7px; border-width: 0 0 3.2px 3.2px; }
 }
 #video-overlay.opacity-0 {
   opacity: 0;
