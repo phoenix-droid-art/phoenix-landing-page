@@ -335,8 +335,8 @@ input::placeholder, textarea::placeholder {
 
 /* Checkbox visível no tema escuro */
 input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   accent-color: var(--phoenix-magenta);
   border: 1.5px solid rgba(255,255,255,0.7);
   border-radius: 4px;
@@ -500,10 +500,15 @@ input[type="checkbox"]:focus {
   .hero-background p.text-2xl {
     font-size: 18px !important;
     line-height: 1.6 !important;
-    margin-bottom: 1.75rem !important; /* reduzir levemente (antes ~2rem) */
+    margin-bottom: 1.25rem !important; /* reduzir mais um pouco o gap do parágrafo */
   }
   .hero-background .mb-10 {
-    margin-bottom: 2.25rem !important; /* reduzir levemente (antes 2.5rem) */
+    margin-bottom: 1.5rem !important; /* reduzir mais um pouco o gap do bloco */
+  }
+  /* Checkbox um pouco maior no mobile para toque mais fácil */
+  input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
   }
 }
 #video-overlay.opacity-0 {
