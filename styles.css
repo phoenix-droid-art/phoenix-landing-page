@@ -333,6 +333,20 @@ input::placeholder, textarea::placeholder {
   white-space: nowrap;
 }
 
+/* Checkbox visível no tema escuro */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--phoenix-magenta);
+  border: 1.5px solid rgba(255,255,255,0.7);
+  border-radius: 4px;
+  background-color: #111;
+}
+input[type="checkbox"]:focus {
+  outline: 2px solid rgba(167,2,64,0.5);
+  outline-offset: 2px;
+}
+
 #confirmacao h2 {
   white-space: normal !important;
   overflow-wrap: break-word !important;
