@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
   const { nome, email, idade, telefone } = req.body;
 
-  if (!nome || !email || !telefone || !idade) {
+  if (!nome || !telefone || !idade) {
     return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
   }
 
@@ -39,7 +39,8 @@ export default async function handler(req, res) {
       minute: '2-digit',
       second: '2-digit',
     });
-    const values = [[nome, telefone, idade, email, dataCadastro]];
+    const safeEmail = email || '';
+    const values = [[nome, telefone, idade, safeEmail, dataCadastro]];
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: sheetId,
