@@ -142,7 +142,11 @@ showOverlay();
 // Máscara telefone
 const telefoneInput = document.getElementById('telefone');
 if (telefoneInput && typeof IMask === 'function') {
-  IMask(telefoneInput, { mask: '(00) 00000-0000' });
+  // Máscara flexível para números internacionais: permite +, dígitos, espaços, parênteses, traços e pontos
+  // Ex.: +351 912 345 678, +55 (11) 91234-5678, 0044 20 7946 0958
+  IMask(telefoneInput, {
+    mask: /^[+0-9()\-\.\s]{0,20}$/
+  });
 }
 
 // Função para mostrar etapas do formulário
